@@ -29,7 +29,7 @@ parser.add_argument('--verbose', default=0, type=int)
 parser.add_argument('--dir', default='./', type=str)
 parser.add_argument('--seed', default=13, type=int)
 parser.add_argument('--output_file', default='results.csv', type=str)
-parser.add_argument('--performance', default=True, type=bool)
+parser.add_argument('--performance', default=False, type=bool)
 parser.add_argument('--between', default='swarm', type=str)
 parser.add_argument('--within', default='swarm', type=str)
 args = parser.parse_args()
@@ -147,6 +147,7 @@ def input_to_state(aeid, aid, input_data, current_state, current_time, first_tim
 # User-defined methods are specified in massca.lib.default to make scenario concise, 
 # except `input_method`, since it requieres an access to global variables
 default.build(performance=args.performance,
+              convergence_steps=4,
               input_method=input_to_state,
               between_cells=args.between, #'default', 'cohda'
               within_cell=args.within,
@@ -174,6 +175,7 @@ with world.group():
         #                step_size=STEP_SIZE, 
         #                wind_file=WIND_FILE,
         #            )
+grid_sim = world.start('GridSim', step_size=STEP_SIZE)
     
 input_sim = world.start("InputSim", 
                               sim_start=START_DATE, 
@@ -186,7 +188,7 @@ output_sim = world.start('OutputSim', start_date = START_DATE,
                                                                    f'{args.between}_{args.within}_{args.output_file}'))
 outputs = output_sim.CSVWriter(buff_size=STEP_SIZE)
     
-grid_sim = world.start('GridSim', step_size=STEP_SIZE)
+
 units = pd.concat([grid.load, grid.sgen, grid.ext_grid, grid.bus], 
                         ignore_index=True).set_index('name')
 grid = grid_sim.Grid(json=grid_file)
@@ -218,8 +220,10 @@ for k, v in units.items():
             world.connect(inputs, fload, (f"{k}.value", "P[MW]"))
             world.connect(fload, agents[-1], ('P[MW]', f"{k}.consumption[MW]"))
             world.connect(agents[-1], fload, ('consumption_delta[MW]', 'scale_factor'), weak=True)
+            #world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("consumption[MW]", "P_load[MW]"))
+            world.connect(agents[-1], outputs)
             world.connect(fload, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_load[MW]"))
-            world.connect(fload, outputs)
+            world.connect(fload, outputs, "P[MW]")
             switch_off.append(k)
             
         elif "StaticGen" in k:
@@ -228,8 +232,10 @@ for k, v in units.items():
             world.connect(inputs, fgen, (f"{k}.value", "P[MW]"))
             world.connect(fgen, agents[-1], ('P[MW]', f"{k}.production[MW]"))
             world.connect(agents[-1], fgen, ('production_delta[MW]', 'scale_factor'), weak=True)
+            #world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("production[MW]", "P_gen[MW]"))
+            world.connect(agents[-1], outputs)    
             world.connect(fgen, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_gen[MW]"))
-            world.connect(fgen, outputs)      
+            world.connect(fgen, outputs, "P[MW]")   
             switch_off.append(k)
             
         elif "Bus" in k:

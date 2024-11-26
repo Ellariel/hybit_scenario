@@ -99,6 +99,8 @@ class Simulator(mosaik_api.Simulator):
 
         if self.gen_neg:
             result = abs(result) * (-1)
+        
+        print('\noutput', self.current_time, eid, attr, result)
         return result
 
     def step(self, time, inputs, max_advance):
@@ -108,6 +110,7 @@ class Simulator(mosaik_api.Simulator):
         self.current_time = time
         for eid, attrs in inputs.items():
             for attr, vals in attrs.items():
+                print('\ninput', time, eid, attr, list(vals.values())[0])
                 if attr == 'P[MW]':
                     if not isinstance(self.entities[eid], pd.Series):
                         self.entities[eid] = list(vals.values())[0]
