@@ -220,9 +220,9 @@ for k, v in units.items():
             world.connect(inputs, fload, (f"{k}.value", "P[MW]"))
             world.connect(fload, agents[-1], ('P[MW]', f"{k}.consumption[MW]"))
             world.connect(agents[-1], fload, ('consumption_delta[MW]', 'scale_factor'), weak=True)
-            #world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("consumption[MW]", "P_load[MW]"))
+            world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("consumption[MW]", "P_load[MW]"))
             world.connect(agents[-1], outputs)
-            world.connect(fload, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_load[MW]"))
+            #world.connect(fload, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_load[MW]"))
             world.connect(fload, outputs, "P[MW]")
             switch_off.append(k)
             
@@ -232,9 +232,9 @@ for k, v in units.items():
             world.connect(inputs, fgen, (f"{k}.value", "P[MW]"))
             world.connect(fgen, agents[-1], ('P[MW]', f"{k}.production[MW]"))
             world.connect(agents[-1], fgen, ('production_delta[MW]', 'scale_factor'), weak=True)
-            #world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("production[MW]", "P_gen[MW]"))
+            world.connect(agents[-1], units[f"Bus-{int(v[1]['bus'])}"][0], ("production[MW]", "P_gen[MW]"))
             world.connect(agents[-1], outputs)    
-            world.connect(fgen, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_gen[MW]"))
+            #world.connect(fgen, units[f"Bus-{int(v[1]['bus'])}"][0], ("P[MW]", "P_gen[MW]"))
             world.connect(fgen, outputs, "P[MW]")   
             switch_off.append(k)
             
