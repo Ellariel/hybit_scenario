@@ -17,3 +17,5 @@ pandapower
 mosaik-csv
 pyarrow
 tqdm
+
+massca @ git+https://gitlab.com/hybit1/massca.git
