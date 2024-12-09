@@ -11,3 +11,5 @@ pyswarms>=1.3.0
 pandapower
 mosaik-csv
 pyarrow
+
+massca @ git+https://gitlab.com/hybit1/massca.git

@@ -43,7 +43,7 @@ def run_scenario(**kwargs):
         results_dir = os.path.join(base_dir, 'results')
         os.makedirs(data_dir, exist_ok=True)
         os.makedirs(results_dir, exist_ok=True)
-        grid_file = os.path.join(data_dir, 'hybit_egrid_cell1.json')
+        grid_file = os.path.join(data_dir, 'grid_model.json')
         prof_file = os.path.join(data_dir, 'grid_profiles.csv')
         profiles = pd.read_csv(prof_file, skiprows=1)
         profiles.index = profiles["Time"].apply(lambda x: (arrow.get(x) -\
@@ -51,11 +51,10 @@ def run_scenario(**kwargs):
         grid_model = pp.from_json(grid_file)
         pp.runpp(grid_model, numba=False)
         print(f"Grid model of {len(grid_model.load)} loads,\
- {len(grid_model.sgen)} sgens,\
- {len(grid_model.bus)} buses,\
- {len(grid_model.line)} lines,\
- {len(grid_model.trafo)} trafos,\
- {len(grid_model.ext_grid)} ext_grids")
+                            {len(grid_model.sgen)} sgens,\
+                            {len(grid_model.bus)} buses,\
+                            {len(grid_model.line)} lines,\
+                            {len(grid_model.trafo)} trafos.")
 
         ########### Scenario definition part
 
@@ -207,26 +206,13 @@ def run_scenario(**kwargs):
 
 
 
-        #units = pd.concat([grid_model.load, grid_model.sgen, 
-        #                grid_model.ext_grid, grid_model.bus], 
-        #                        ignore_index=True).set_index('name')
-        #print(units)
-
-        # saving power unit IDs
+        units = pd.concat([grid_model.load, grid_model.sgen, 
+                        grid_model.ext_grid, grid_model.bus], 
+                                ignore_index=True).set_index('name')
         grid_model = grid_sim.Grid(json=grid_file)
-        extra_info = grid_sim.get_extra_info()
-        units = {v['name'] : (e, v) for k, v in extra_info.items()
-                                            for e in grid_model.children
-                                                if e.eid == k and\
-                                                    ('ExternalGrid' in v['name'] or\
-                                                     'StaticGen' in v['name'] or\
-                                                     'Load' in v['name'] or\
-                                                     'Bus' in v['name']
-                                                    )}
-
-        print(units)
-        sys.exit()
-
+        units = {k : (e, v.to_dict()) for k, v in units.iterrows()
+                                    for e in grid_model.children
+                                        if e.eid == k}
 
         agents = [] # one simple agent per power unit (sgen, load)
         controllers = [] # top-level agents that are named as cell_controllers, one per cell
