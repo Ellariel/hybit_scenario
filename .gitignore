@@ -1,0 +1,16 @@
+__pycache__
+.idea/*
+*.hdf5
+*.log
+*.faas
+*.lock
+*.old
+nul
+results.csv
+temp_*.csv
+cells.json
+profiles.json
+*.egg-info
+build
+dist
+launch.json
