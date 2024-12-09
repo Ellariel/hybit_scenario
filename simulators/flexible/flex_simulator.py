@@ -29,7 +29,7 @@ META = {
     },
 }
 
-STEP_SIZE = 60*60 
+STEP_SIZE = 60*15 
 CACHE_DIR = Path(abspath(__file__)).parent
 DATE_FORMAT = "YYYY-MM-DD HH:mm:ss"
 
@@ -99,8 +99,7 @@ class Simulator(mosaik_api.Simulator):
 
         if self.gen_neg:
             result = abs(result) * (-1)
-        
-        print('\noutput', self.current_time, eid, attr, result)
+
         return result
 
     def step(self, time, inputs, max_advance):
@@ -109,13 +108,13 @@ class Simulator(mosaik_api.Simulator):
             self.scale_factor = {k: 0 for k, v in self.scale_factor.items()}               
         self.current_time = time
         for eid, attrs in inputs.items():
-            for attr, vals in attrs.items():
-                print('\ninput', time, eid, attr, list(vals.values())[0])
+            for attr, values in attrs.items():
+                _, v = values.popitem()
                 if attr == 'P[MW]':
                     if not isinstance(self.entities[eid], pd.Series):
-                        self.entities[eid] = list(vals.values())[0]
+                        self.entities[eid] = v
                 elif attr == 'scale_factor':
-                    self.scale_factor[eid] = list(vals.values())[0]
+                    self.scale_factor[eid] = v
                 else:
                     pass
 

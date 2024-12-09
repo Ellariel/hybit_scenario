@@ -1,1017 +1,140 @@
-2024-11-26 16:50:16,355 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,370 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,386 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:16,386 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:50:21,925 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:50:21,941 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:14,549 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,524 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,524 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,524 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,524 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,539 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:51:36,539 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,088 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:11,104 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:52:16,362 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:52:16,363 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:52:16,363 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:52:16,363 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:52:16,364 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:52:16,364 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:52:16,365 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:52:16,365 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:52:16,365 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:52:16,366 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:52:16,366 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:52:16,366 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:52:16,367 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:52:16,368 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 16:53:44,651 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:44,667 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:53:47,583 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:53:47,599 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:53:47,599 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:53:47,599 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,589 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:07,605 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:54:12,388 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:54:12,389 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:54:12,390 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:54:12,390 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:54:12,391 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:54:12,391 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:54:12,392 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:54:12,392 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:54:12,393 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:54:12,393 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:54:12,394 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:54:12,394 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:54:12,395 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:54:12,397 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 16:55:33,028 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,030 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,032 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,035 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,036 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,037 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,038 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,039 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,041 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,041 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,044 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,045 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:33,046 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:55:38,646 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:55:38,646 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 16:56:03,812 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,813 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,816 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,817 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,818 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,819 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,820 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,821 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,823 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,824 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,825 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,827 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:03,829 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 16:56:10,081 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 16:56:10,082 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 16:56:10,082 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 16:56:10,083 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 16:56:10,083 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 16:56:10,084 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 16:56:10,084 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 16:56:10,085 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 16:56:10,086 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 16:56:10,089 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 16:56:10,090 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 16:56:10,090 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 16:56:10,091 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 16:56:10,092 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:11:10,652 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,652 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:10,667 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:11:15,816 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:11:15,831 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:11:15,831 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,958 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,974 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,974 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,974 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,974 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:15,974 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:12:21,269 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:12:21,285 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:12:21,285 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:12:44,893 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,909 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,909 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,909 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,909 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,909 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,914 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,915 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,916 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,917 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,918 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,919 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:44,919 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:12:50,605 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:12:50,605 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:12:50,606 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:12:50,606 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:12:50,607 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:12:50,608 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:12:50,608 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:12:50,609 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:12:50,609 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:12:50,610 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:12:50,610 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:12:50,610 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:12:50,610 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:12:50,610 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:15:23,257 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,259 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,259 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,261 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,262 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,262 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,263 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,264 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,265 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,267 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,268 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,269 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:23,269 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:15:28,643 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:15:28,659 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:15:28,659 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:10,419 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:43,731 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:18:48,841 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:18:48,841 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,290 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,305 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,305 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,305 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,305 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:38,305 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:21:43,484 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:21:43,484 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,395 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:19,411 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:24:24,128 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:24:24,128 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:24:24,128 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:24:24,128 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:24:24,128 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:24:24,143 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:24:24,143 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:30:44,123 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:44,139 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:30:49,274 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:30:49,274 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:32,319 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:36:37,447 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:36:37,462 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:36:37,462 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:36:37,462 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:36:37,462 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:02,737 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:46:05,922 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:46:05,922 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,653 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,668 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,668 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,668 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,668 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:17,668 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:49:22,874 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:49:22,874 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:09,539 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:51:14,908 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:51:14,908 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:51:14,908 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:51:14,920 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:51:14,921 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:51:14,921 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,252 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:32,268 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:53:37,536 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:53:37,536 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:53:37,536 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:53:37,536 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:53:37,551 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:53:37,551 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,216 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,231 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,231 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,231 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:50,231 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 17:57:55,539 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 17:57:55,539 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:00:18,277 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,277 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,277 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:18,293 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:00:23,925 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:00:23,941 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:00:23,941 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,360 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:44,376 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:02:47,219 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:02:47,235 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:02:47,235 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:02:47,235 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:03:04,819 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:04,834 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:03:08,726 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:03:08,726 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:04:17,114 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,114 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,114 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,114 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,114 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:17,130 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:04:21,351 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:04:21,351 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:04:42,126 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:42,141 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:04:47,466 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:04:47,466 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:07:29,446 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,446 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:29,462 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:07:32,835 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:07:32,835 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,507 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:51,523 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:07:55,791 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:07:55,807 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:07:55,808 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:07:55,808 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:07:55,809 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:07:55,810 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:07:55,810 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,624 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,639 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,639 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,639 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,639 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:08,639 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:09:13,399 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:09:13,399 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:09:34,902 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:34,918 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:09:40,691 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:09:40,691 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:12:37,910 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,910 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,910 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:37,926 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:12:41,262 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:12:41,262 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:12:59,826 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,826 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,826 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,826 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,826 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:12:59,842 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:13:04,219 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:13:04,219 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,736 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:20,752 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:14:26,172 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:14:26,188 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:14:26,188 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:14:50,172 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,172 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,172 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,172 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:50,188 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:14:56,673 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:14:56,673 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:23:37,084 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,084 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,084 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,084 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,084 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:37,100 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:23:40,442 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:23:40,442 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:23:59,972 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:24:04,450 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:24:04,450 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:19,009 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:23,909 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:25:23,909 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:25:23,910 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:25:23,910 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:25:23,911 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:25:23,912 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:25:23,912 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:25:23,913 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:25:23,914 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:25:23,914 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:25:23,914 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:25:23,914 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:25:23,914 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:25:23,914 - mango.container.core - INFO - Successfully shutdown
-2024-11-26 18:25:46,148 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,150 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,150 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,151 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,152 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,153 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,154 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,155 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,156 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,156 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,157 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,158 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:46,159 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent0: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent1: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent2: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent3: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent4: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent5: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent6: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent7: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent8: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent9: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent10: Shutdown successful
-2024-11-26 18:25:52,289 - mango.agent.core - INFO - Agent agent11: Shutdown successful
-2024-11-26 18:25:52,305 - mango.agent.core - INFO - Agent agent12: Shutdown successful
-2024-11-26 18:25:52,305 - mango.container.core - INFO - Successfully shutdown
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,147 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,163 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:11,163 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,218 - mango.agent.core - INFO - Agent agent0: Shutdown successful
+2024-12-09 14:54:14,219 - mango.agent.core - INFO - Agent agent1: Shutdown successful
+2024-12-09 14:54:14,220 - mango.agent.core - INFO - Agent agent2: Shutdown successful
+2024-12-09 14:54:14,220 - mango.agent.core - INFO - Agent agent3: Shutdown successful
+2024-12-09 14:54:14,221 - mango.agent.core - INFO - Agent agent4: Shutdown successful
+2024-12-09 14:54:14,221 - mango.agent.core - INFO - Agent agent5: Shutdown successful
+2024-12-09 14:54:14,222 - mango.agent.core - INFO - Agent agent6: Shutdown successful
+2024-12-09 14:54:14,223 - mango.agent.core - INFO - Agent agent7: Shutdown successful
+2024-12-09 14:54:14,224 - mango.agent.core - INFO - Agent agent8: Shutdown successful
+2024-12-09 14:54:14,225 - mango.agent.core - INFO - Agent agent9: Shutdown successful
+2024-12-09 14:54:14,225 - mango.agent.core - INFO - Agent agent10: Shutdown successful
+2024-12-09 14:54:14,226 - mango.agent.core - INFO - Agent agent11: Shutdown successful
+2024-12-09 14:54:14,226 - mango.agent.core - INFO - Agent agent12: Shutdown successful
+2024-12-09 14:54:14,227 - mango.container.core - INFO - Successfully shutdown
+2024-12-09 14:54:14,417 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,417 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,417 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,417 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,431 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:14,880 - mango.agent.core - INFO - Agent agent0: start running in container ('localhost', 7097)
+2024-12-09 14:54:14,881 - mango.agent.core - INFO - Agent agent0: start running in container ('localhost', 7098)
+2024-12-09 14:54:14,881 - root - INFO - Agent got created
+2024-12-09 14:54:14,881 - mango.agent.core - INFO - Agent agent1: start running in container ('localhost', 7098)
+2024-12-09 14:54:14,881 - root - INFO - Agent got created
+2024-12-09 14:54:14,881 - mango.agent.core - INFO - Agent agent2: start running in container ('localhost', 7098)
+2024-12-09 14:54:14,881 - root - INFO - Agent got created
+2024-12-09 14:54:14,881 - root - INFO - Init_schedules={'Agent_0': <Future pending>, 'Agent_1': <Future pending>, 'Agent_2': <Future pending>}
+2024-12-09 14:54:14,881 - root - INFO - Reset MAS
+2024-12-09 14:54:14,881 - root - INFO - Sent new flex to agents
+2024-12-09 14:54:14,881 - root - INFO - Agent agent0 got new flex
+2024-12-09 14:54:14,881 - root - INFO - Agent agent1 got new flex
+2024-12-09 14:54:14,881 - root - INFO - Agent agent2 got new flex
+2024-12-09 14:54:14,881 - root - INFO - Sent new schedule to agents
+2024-12-09 14:54:14,881 - root - INFO - Agent agent0 got new start values
+2024-12-09 14:54:14,881 - root - INFO - Got start values: Schedule Invitations with participants: [(('localhost', 7098), 'agent0'), (('localhost', 7098), 'agent1'), (('localhost', 7098), 'agent2')]
+2024-12-09 14:54:14,982 - root - INFO - Ask agents to start negotiation
+2024-12-09 14:54:14,982 - root - INFO - Agent agent0 sends schedule [7.972584822249694]
+2024-12-09 14:54:14,982 - root - INFO - Agent agent1 starts schedule generating for first time
+2024-12-09 14:54:14,998 - root - INFO - Agent agent1 finished generating schedule generating for first time
+2024-12-09 14:54:14,998 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:15,134 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:15,134 - root - INFO - Agent agent2 starts schedule generating for first time
+2024-12-09 14:54:15,134 - root - INFO - Agent agent2 finished generating schedule generating for first time
+2024-12-09 14:54:15,147 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:15,260 - root - INFO - Agent agent2 updated possible schedules
+2024-12-09 14:54:15,260 - root - INFO - Agent agent0 starts schedule generating for first time
+2024-12-09 14:54:15,276 - root - INFO - Agent agent0 finished generating schedule generating for first time
+2024-12-09 14:54:15,276 - root - INFO - Agent agent0 starts updating possible schedules
+2024-12-09 14:54:15,387 - root - INFO - Agent agent0 updated possible schedules
+2024-12-09 14:54:15,402 - root - INFO - Agent agent0 starts updating possible schedules
+2024-12-09 14:54:15,512 - root - INFO - Agent agent0 updated possible schedules
+2024-12-09 14:54:15,528 - root - INFO - Agent agent0 sets termination to True
+2024-12-09 14:54:15,528 - root - INFO - Agent %s trys to send termination to all other agents
+2024-12-09 14:54:15,528 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:15,637 - root - INFO - Agent agent2 updated possible schedules
+2024-12-09 14:54:15,637 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:15,762 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:15,762 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:15,949 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:15,949 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:16,074 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:16,074 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:16,200 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:16,200 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:16,326 - root - INFO - Agent agent2 updated possible schedules
+2024-12-09 14:54:16,326 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:16,435 - root - INFO - Agent agent2 updated possible schedules
+2024-12-09 14:54:16,435 - root - INFO - Agent agent0 starts updating possible schedules
+2024-12-09 14:54:16,552 - root - INFO - Agent agent0 updated possible schedules
+2024-12-09 14:54:16,552 - root - INFO - Agent agent0 starts updating possible schedules
+2024-12-09 14:54:16,661 - root - INFO - Agent agent0 updated possible schedules
+2024-12-09 14:54:16,661 - root - INFO - Agent agent0 sets termination to True
+2024-12-09 14:54:16,677 - root - INFO - Agent %s trys to send termination to all other agents
+2024-12-09 14:54:16,677 - root - INFO - Agent agent1 sets termination to True
+2024-12-09 14:54:16,677 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:16,788 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:16,803 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:16,913 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:16,913 - root - INFO - Agent agent2 sets termination to True
+2024-12-09 14:54:16,913 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:17,022 - root - INFO - Agent agent2 updated possible schedules
+2024-12-09 14:54:17,022 - root - INFO - Agent agent0 starts updating possible schedules
+2024-12-09 14:54:17,131 - root - INFO - Agent agent0 updated possible schedules
+2024-12-09 14:54:17,147 - root - INFO - Agent agent1 starts updating possible schedules
+2024-12-09 14:54:17,265 - root - INFO - Agent agent1 updated possible schedules
+2024-12-09 14:54:17,268 - root - INFO - Agent agent2 starts updating possible schedules
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent0: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent1: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent2: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent3: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent4: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent5: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent6: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent7: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent8: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent9: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent10: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,315 - mango.agent.core - INFO - Agent agent11: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:44,330 - mango.agent.core - INFO - Agent agent12: start running in container ('0.0.0.0', 5678)
+2024-12-09 14:54:47,108 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 1.4, 'c2': 1.4, 'w': 0.7}
+2024-12-09 14:54:47,612 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.0, best pos: [3.06476599 3.40570134 1.50211749]
+2024-12-09 14:54:47,628 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 1.4, 'c2': 1.4, 'w': 0.7}
+2024-12-09 14:54:48,068 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.0, best pos: [1.63476673 1.42999926]
+2024-12-09 14:54:48,068 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 1.4, 'c2': 1.4, 'w': 0.7}
+2024-12-09 14:54:48,491 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.0, best pos: [1.86347335 1.54222799]
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent0: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent1: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent2: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent3: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent4: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent5: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent6: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent7: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent8: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent9: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent10: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent11: Shutdown successful
+2024-12-09 14:54:48,554 - mango.agent.core - INFO - Agent agent12: Shutdown successful
+2024-12-09 14:54:48,554 - mango.container.core - INFO - Successfully shutdown
