@@ -10,19 +10,9 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+from data.params import MODEL_SETUPS, WT_MODULES, pv_model_params
 
-def test_sims():
-    """
-    Run test.
-    """
-
-    dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-    sys.path.append(dir)
-    print('dir:', dir)
-
-    from data.params import MODEL_SETUPS, WT_MODULES, pv_model_params
-    
-    sim_config = {
+sim_config = {
         'WTSim': {
             'python': 'simulators.wind:Simulator'
         },
@@ -41,35 +31,34 @@ def test_sims():
     }
 
     ## Preperation
-    END = 24 * 60 * 60 # one day in seconds
-    START_DATE = '2023-11-01 00:00:00'
-    DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
-    STEP_SIZE = 15 * 60 # 15 minutes in seconds
-    WEATHER_DATA = 'DWD_weather_data_Bremen_2020_2023.csv' # data source: https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/
+END = 24 * 60 * 60 # one day in seconds
+START_DATE = '2023-11-01 00:00:00'
+DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
+STEP_SIZE = 15 * 60 # 15 minutes in seconds
+WEATHER_DATA = 'DWD_weather_data_Bremen_2020_2023.csv' # data source: https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/
 
-    base_dir = dir
-    output_file = 'results.csv'
-    data_dir = os.path.join(base_dir, 'data')
-    results_dir = os.path.join(base_dir, 'results')
-    output_file = os.path.join(results_dir, f'test_{output_file}')
+base_dir = './'
+output_file = 'results.csv'
+data_dir = os.path.join(base_dir, 'data')
+results_dir = os.path.join(base_dir, 'results')
+output_file = os.path.join(results_dir, f'test_{output_file}')
 
     ## Set up the "world" of the scenario
-    world = mosaik.World(sim_config)
-    osim = world.start('OutputSim', start_date = START_DATE,output_file=output_file)
-    isim = world.start("InputSim", 
+world = mosaik.World(sim_config)
+osim = world.start('OutputSim', start_date = START_DATE,output_file=output_file)
+isim = world.start("InputSim", 
                             sim_start=START_DATE, 
                             date_format=DATE_FORMAT,
                             datafile=os.path.join(data_dir, WEATHER_DATA))
-    pvsim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
-    flsim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
-        
-    outputs = osim.CSVWriter(buff_size=STEP_SIZE)
-    inputs = isim.WeatherData.create(1)[0]
-    ren = flsim.FLSim.create(1)[0] # summator for renewable power
-    #con = flsim.FLSim.create(1)[0] # summator for conventional power
-    wtsims = {}
-    units = {}
-    for id, setup in MODEL_SETUPS.items():
+pvsim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
+flsim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
+outputs = osim.CSVWriter(buff_size=STEP_SIZE)
+inputs = isim.WeatherData.create(1)[0]
+ren = flsim.FLSim.create(1)[0] # summator for renewable power
+#con = flsim.FLSim.create(1)[0] # summator for conventional power
+wtsims = {}
+units = {}
+for id, setup in MODEL_SETUPS.items():
         if 'PV' in id:
             units[id] = pvsim.Photovoltaic(**pv_model_params(**setup))
             world.connect(inputs, units[id], 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2')
@@ -89,29 +78,28 @@ def test_sims():
             world.connect(units[id], ren, ('P_gen', 'P[MW]'))
             world.connect(units[id], outputs, ('P_gen', 'P[MW]'))
     
-    world.connect(ren, outputs, 'P[MW]')
+world.connect(ren, outputs, 'P[MW]')
 
 
-    print(f'Power units created: {len(units)}')
-
-    world.run(until=END, print_progress='individual')
+print(f'Power units created: {len(units)}')
+world.run(until=END, print_progress='individual')
 
     ## testing part
-    print(f'Results were saved: {output_file}')
-    r = pd.read_csv(output_file)
-    s_test_sum = 0
-    s_cols = ['WTSim-E82_2000kw.WT_2-P[MW]',
+print(f'Results were saved: {output_file}')
+r = pd.read_csv(output_file)
+s_test_sum = 0
+s_cols = ['WTSim-E82_2000kw.WT_2-P[MW]',
             'WTSim-ANBONUS_2300kw.WT_3-P[MW]', 
             'PVSim.Photovoltaic-15-P[MW]', 
             'PVSim.Photovoltaic-6-P[MW]']
 
-    for c in s_cols:
+for c in s_cols:
         s_test_sum += r[c].sum()
 
-    print(f'{s_test_sum:.2f}')
+print(f'{s_test_sum:.2f}')
 
-    print(f"{r['FlexSim.FLSim-0-P[MW]'].sum():.2f}")
+print(f"{r['FlexSim.FLSim-0-P[MW]'].sum():.2f}")
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
         
-        test_sims()
+#        test_sims()
