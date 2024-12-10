@@ -3,7 +3,7 @@ This file contains the parameters for wind-turbines and PV-Systems (all located 
 
 '''
 
-model_setup = {
+MODEL_SETUPS = {
             # Forschungs WEA Bremen GmbH
         'WT1': {'module_type': 'RE34_104_3400kw', 'max_power': 3.4},
             # WP Powerwind Anlage 1
@@ -58,8 +58,7 @@ model_setup = {
         'PV21': {'module_type': 'PV_310Wp', 'no_modules': 164,},
     }
 
-def wt_power_curve(module_type, **kwargs):
-    WT_modules = {'E82_2000kw': 'powerCurve_E-82_2000kW.txt', # data source: https://www.reuthwind.de/enercon/enercon_e82.pdf [last access: 29.08.2024]
+WT_MODULES = {'E82_2000kw': 'powerCurve_E-82_2000kW.txt', # data source: https://www.reuthwind.de/enercon/enercon_e82.pdf [last access: 29.08.2024]
                   'E82_E2_2300kw': 'powerCurve_E-82E2_2300kW.txt', # data source: https://www.wind-turbine-models.com/turbines/550-enercon-e-82-e2-2.300#powercurve [last access: 29.08.2024]
                   'ANBONUS_2000kw': 'powerCurve_AN-BONUS_2000kW-76.txt', # data source: https://www.thewindpower.net/turbine_de_229_bonus_b76-2000.php [last access: 29.08.2024]
                   'ANBONUS_2300kw': 'powerCurve_AN-BONUS_2300kW-82.txt', # data source: https://www.wind-turbine-models.com/turbines/699-bonus-b82-2300#powercurve [last access: 29.08.2024]
@@ -67,11 +66,8 @@ def wt_power_curve(module_type, **kwargs):
                   'V90_2000kw': 'powerCurve_Vestas-V90.txt', # data source: https://www.wind-turbine-models.com/turbines/16-vestas-v90#powercurve [last access: 29.08.2024]
                   'Senvion34_3400kw': 'powerCurve_Senvion-3400kW.txt', # data source: https://en.wind-turbine-models.com/turbines/1003-senvion-3.4m114 [last access: 29.08.2024]
                   'PW90_2500kw': 'powerCurve_FL2500kw-90.txt',} # no power curve for PW90 available, therefore used data of a similar turbine: https://www.thewindpower.net/turbine_de_153_fuhrlander_fl-2500-90.php [last access: 29.08.2024]
-    return WT_modules[module_type]
 
-
-def pv_model_params(module_type, no_modules, **kwargs):
-    PV_modules = {
+PV_MODULES = {
         'PV_77_5Wp': {'module_length': 1200, 'module_width': 600, 'module_p_peak_kw': 0.0775, 'eta': 0.108}, # eta self-calculated; source: https://www.pvxchange.com/mediafiles/pvxchange/attachments/FS%20Series%202%20Datasheet%20-%20German.pdf
         'PV_95Wp': {'module_length': 1070, 'module_width': 536, 'module_p_peak_kw': 0.095, 'eta': 0.166}, # eta self-calculated: source: https://www.amumot-shop.de/dateien/solarswiss/solarmodul-rahmen-kvm5-95-140-datenblatt.pdf
         'PV_115Wp': {'module_length': 1200, 'module_width': 505, 'module_p_peak_kw': 0.115, 'eta': 0.19}, # source: https://www.esomatic.de/media/pdf/57/54/11/Datenblatt-FDS115-12M10-115Wp.pdf
@@ -99,12 +95,14 @@ def pv_model_params(module_type, no_modules, **kwargs):
         'PV_375Wp': {'module_length': 1780, 'module_width': 1052, 'module_p_peak_kw': 0.375, 'eta': 0.202}, # source: https://echtsolar.de/wp-content/uploads/2022/06/Solarwatt-vision-H-3.0-pure-Datenblatt-DE.pdf
         'PV_385Wp': {'module_length': 1767, 'module_width': 1041, 'module_p_peak_kw': 0.385, 'eta': 0.209}, # source: https://echtsolar.de/wp-content/uploads/2022/06/Meyer-Burger-Black-Datenblatt-DE.pdf
     }
-    a_m2 = no_modules * PV_modules[module_type]['module_length'] * PV_modules[module_type]['module_width'] * 0.0001 # overall area of PV modules / Gesamtfläche der PV-Anlage (in m^2)
-    p_peak_kw = no_modules * PV_modules[module_type]['module_p_peak_kw']  # peak power of PV plant / Nennleistung der PV-Anlage (in kw): x Wp pro Modul bei insgesamt y Modulen
-    eta = PV_modules[module_type]['eta']  # efficiency of pv plant / Effizienz der PV-Anlage
+
+def pv_model_params(module_type, no_modules, **kwargs):
+    a_m2 = no_modules * PV_MODULES[module_type]['module_length'] * PV_MODULES[module_type]['module_width'] * 0.0001 # overall area of PV modules / Gesamtfläche der PV-Anlage (in m^2)
+    p_peak_kw = no_modules * PV_MODULES[module_type]['module_p_peak_kw']  # peak power of PV plant / Nennleistung der PV-Anlage (in kw): x Wp pro Modul bei insgesamt y Modulen
+    eta = PV_MODULES[module_type]['eta']  # efficiency of pv plant / Effizienz der PV-Anlage
     cos_phi = 0.95  # Leistungsfaktor (Phasenwinkel)
     t_module_deg_celsius = 15  # initial temperature of PV module / Anfangstemperatur der Module (in °C)
-    pv_model_params = {
+    return {
         # https://midas-mosaik.gitlab.io/pysimmods/base-models/pv.html
         "params" : {
             "pv": {
@@ -126,13 +124,3 @@ def pv_model_params(module_type, no_modules, **kwargs):
             "inverter": None,
         },
     }
-    return pv_model_params
-
-def setup(id):
-    if id in model_setup and 'PV' in id:
-        return pv_model_params(**model_setup[id])
-    
-    if id in model_setup and 'WT' in id:
-        return {'power_curve_csv': wt_power_curve(**model_setup[id]), **model_setup[id]}
-    
-    return {}
