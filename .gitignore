@@ -5,6 +5,7 @@ __pycache__
 *.faas
 *.lock
 *.old
+*.pyc
 nul
 results.csv
 test_results.csv
