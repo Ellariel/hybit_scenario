@@ -1,0 +1,2 @@
+wind_speed,power,power_factor,source
+0,0,0,
