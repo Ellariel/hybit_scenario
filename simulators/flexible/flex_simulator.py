@@ -109,7 +109,7 @@ class Simulator(mosaik_api.Simulator):
         self.current_time = time
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():
-                _, v = values.popitem()
+                v = sum(values.values())
                 if attr == 'P[MW]':
                     if not isinstance(self.entities[eid], pd.Series):
                         self.entities[eid] = v
