@@ -31,11 +31,13 @@ def zopen(archive):
         print(f'File not found: "{archive}"')
 
 
+## WEATHER DATA PREPARATION
+
 delimiter = ';'
 datafile_path_temp = '10minutenwerte_TU_00691_20200101_20231231_hist.zip'
 datafile_path_solar = '10minutenwerte_SOLAR_00691_20200101_20231231_hist.zip'
 datafile_path_wind = '10minutenwerte_wind_00691_20200101_20231231_hist.zip'
-weather_file = 'DWD_weather_data_Bremen_2020_2023.csv'
+weather_file = 'weather_data_2023.csv'
 
 # open the files for reading
 datafile_temp = zopen(datafile_path_temp)
@@ -47,7 +49,7 @@ datafile_wind = pd.read_csv(datafile_wind, delimiter=delimiter, dtype=str)
 
 df = pd.merge(datafile_temp, datafile_solar, on='MESS_DATUM', how='left')
 df = pd.merge(df, datafile_wind, on='MESS_DATUM', how='left')
-df['Date'] = df['MESS_DATUM'].apply(lambda x: f"{x[0:4]}-{x[4:6]}-{x[6:8]} {x[8:10]}:{x[10:12]}:00")
+df['Time'] = df['MESS_DATUM'].apply(lambda x: f"{x[0:4]}-{x[4:6]}-{x[6:8]} {x[8:10]}:{x[10:12]}:00")
 df['t_air_deg_celsius'] = pd.to_numeric(df['TT_10'])
 df['bh_w_per_m2'] = pd.to_numeric(df['GS_10']) - pd.to_numeric(df['DS_10'])
 df['dh_w_per_m2'] = pd.to_numeric(df['DS_10'])
@@ -59,6 +61,28 @@ df['wind_speed'] = pd.to_numeric(df['FF_10'])
         # bh_w_per_m2 = GS_10 - DS_10
         # dh_w_per_m2 = DS_10
         # FF_10 - wind speed
-df[['Date', 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2', 'wind_speed']].to_csv(weather_file, index=False)
+df[['Time', 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2', 'wind_speed']].to_csv(weather_file, index=False)
 weather_file = Path(weather_file)
 weather_file.write_text(f"WeatherData\n{weather_file.read_text()}")
+
+
+## STEEL PLANT DATA PREPARATION
+
+
+delimiter = ','
+correct_year = 2023
+datafile_plant = 'profileA_1.15TW.csv'
+plant_file = 'steel_plant_consumption_2023.csv'
+
+datafile_plant = pd.read_csv(datafile_plant, delimiter=delimiter, parse_dates=True, low_memory=False)
+datafile_plant['Time'] = pd.to_datetime(datafile_plant['Time'], utc=False)
+datafile_plant['P[MW]'] = datafile_plant['P[kW]'] / 1000 # kW -> MW
+datafile_plant.set_index('Time', inplace=True)
+ydiff = correct_year - datafile_plant.index[0].year
+datafile_plant.index += pd.offsets.DateOffset(years=ydiff) 
+datafile_plant.reset_index(inplace=True)
+
+datafile_plant[['Time', 'P[MW]']].to_csv(plant_file, index=False)
+plant_file = Path(plant_file)
+plant_file.write_text(f"SteelPlant\n{plant_file.read_text()}")
+

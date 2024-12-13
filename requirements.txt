@@ -1,4 +1,5 @@
 numpy>=1.26.4
+numba
 pandas>=2.2.1
 mosaik_api_v3>=3.0.7
 mango_agents>=1.1.2

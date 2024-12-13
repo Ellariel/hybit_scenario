@@ -22,9 +22,9 @@ META = {
         "FLSim": {
             "public": True,
             "any_inputs": True,
-            "trigger" : ['scale_factor'],
+            "trigger" : ['delta_signal'],
             "attrs": ["P[MW]",           # input/output active power [MW]
-                      'scale_factor'],   # input of modifier from ctrl
+                      'delta_signal'],   # input of modifier from ctrl
         }
     },
 }
@@ -66,7 +66,7 @@ class Simulator(mosaik_api.Simulator):
         self.current_time = -1
         self.sid = sid
         self.entities = {}
-        self.scale_factor = {}
+        self.delta_signal = {}
         return self.meta
 
     def create(self, num: int, model: str, **model_params: Any) -> List[CreateResult]:
@@ -74,7 +74,7 @@ class Simulator(mosaik_api.Simulator):
         for n in range(len(self.entities), len(self.entities) + num):
             eid = f"{model}-{n}"
             self.entities[eid] = 0
-            self.scale_factor[eid] = 0 # Default value
+            self.delta_signal[eid] = 0 # Default value
 
             if isinstance(self.csv_file, pd.DataFrame):
                 self.entities[eid] = self.csv_file[eid]
@@ -86,8 +86,8 @@ class Simulator(mosaik_api.Simulator):
         return entities
     
     def _get_data(self, eid, attr):
-        if attr == 'scale_factor':
-            return self.scale_factor[eid]
+        if attr == 'delta_signal':
+            return self.delta_signal[eid]
         
         if isinstance(self.entities[eid], pd.Series):
             idx = self.entities[eid].index.get_indexer([self.date.datetime], method='ffill')[0]
@@ -95,7 +95,7 @@ class Simulator(mosaik_api.Simulator):
         else:
             result = self.entities[eid]
 
-        result += self.scale_factor[eid]
+        result += self.delta_signal[eid]
 
         if self.gen_neg:
             result = abs(result) * (-1)
@@ -105,7 +105,7 @@ class Simulator(mosaik_api.Simulator):
     def step(self, time, inputs, max_advance):
         if self.current_time > -1 and self.current_time != time:
             self.date = self.date.shift(seconds=self.step_size)
-            self.scale_factor = {k: 0 for k, v in self.scale_factor.items()}               
+            self.delta_signal = {k: 0 for k, v in self.delta_signal.items()}               
         self.current_time = time
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():
@@ -113,8 +113,8 @@ class Simulator(mosaik_api.Simulator):
                 if attr == 'P[MW]':
                     if not isinstance(self.entities[eid], pd.Series):
                         self.entities[eid] = v
-                elif attr == 'scale_factor':
-                    self.scale_factor[eid] = v
+                elif attr == 'delta_signal':
+                    self.delta_signal[eid] = v
                 else:
                     pass
 
