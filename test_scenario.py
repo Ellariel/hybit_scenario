@@ -37,14 +37,15 @@ sim_config = {
     }
 
     ## Preperation
-END = 24 * 60 * 60 # one day in seconds
+END = 24 * 60 * 60 * 1# one day in seconds
 START_DATE = '2023-05-01 00:00:00'
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
 WEATHER_DATA = 'weather_data_2023.csv'
 STEEL_PLANT_DATA = 'steel_plant_consumption_2023.csv'
 GRID_FILE = 'hybit_egrid_cell1.json'
-GEN_NEG = True
+GEN_NEG = False
+
 
 base_dir = './'
 output_file = 'results.csv'
@@ -70,7 +71,7 @@ world = mosaik.World(sim_config)
 output_sim = world.start('OutputSim', start_date = START_DATE,output_file=output_file)
 pv_sim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z", gen_neg=GEN_NEG)
 flex_sim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
-plant_sim = world.start("FlexSim", sim_id="PlantSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=not GEN_NEG))
+#plant_sim = world.start("FlexSim", sim_id="PlantSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=not GEN_NEG))
 grid_sim = world.start('GridSim', step_size=STEP_SIZE) # step_size=None is important to have the grid model triggered by any input
 weater_input = world.start("InputSim", 
                             sim_start=START_DATE, 
@@ -84,8 +85,9 @@ plant_input = world.start("InputSim",
 outputs = output_sim.CSVWriter(buff_size=STEP_SIZE)
 weather = weater_input.WeatherData.create(1)[0]
 
-plant_input = plant_input.SteelPlant.create(1)[0]
-steel_plant = plant_sim.FLSim.create(1)[0]
+#plant_input = plant_input.SteelPlant.create(1)[0]
+#steel_plant = plant_sim.FLSim.create(1)[0]
+steel_plant = plant_input.SteelPlant.create(1)[0]
 
 grid_model = grid_sim.Grid(json=grid_file)
 extra_info = grid_sim.get_extra_info()
@@ -99,22 +101,30 @@ power_units = {v['name'] : (e, v) for k, v in extra_info.items()
 renewables = flex_sim.FLSim.create(1)[0] # summator for renewable power
 conventional = flex_sim.FLSim.create(1)[0] # summator for conventional power
 
-
-def get_power_unit(key, type='Bus'):
+def get_power_unit(key, type='Bus', first=True):
+    units = []
     for k, v in power_units.items():
          if (f'-{key}-' in k) and (f'-{type}-' in k):
-              return v[0]
+              units.append(v[0])
+    if first:
+        return units[0]
+    return units
 
 wt_sims = {}
 switch_off = []
 units = {}
+#gens = 0
 for id, setup in MODEL_SETUPS.items():
         if 'PV' in id:
             units[id] = pv_sim.Photovoltaic(**pv_model_params(**setup))
             world.connect(weather, units[id], 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2')
             world.connect(units[id], get_power_unit(id), ('p_mw', 'P_gen[MW]'))
-            switch_off.append(get_power_unit(id, 'StaticGen').eid)
+
+            #switch_off.append(get_power_unit(id, 'StaticGen').eid)
+            #world.connect(get_power_unit(id, 'StaticGen'), outputs, 'P[MW]')
+
             world.connect(units[id], renewables, ('p_mw', 'P[MW]'))
+            #gens += 1
             #world.connect(units[id], outputs, ('p_mw', 'P[MW]'))
         elif 'WT' in id:
             model_type = setup["module_type"]
@@ -128,26 +138,53 @@ for id, setup in MODEL_SETUPS.items():
             units[id] = wtsim.WT(max_power=setup['max_power'])
             world.connect(weather, units[id], 'wind_speed')
             world.connect(units[id], get_power_unit(id), ('P_gen', 'P_gen[MW]'))
-            switch_off.append(get_power_unit(id, 'StaticGen').eid)
+
+            #switch_off.append(get_power_unit(id, 'StaticGen').eid)
+            #world.connect(get_power_unit(id, 'StaticGen'), outputs, 'P[MW]')
+
             world.connect(units[id], renewables, ('P_gen', 'P[MW]'))
             #world.connect(units[id], outputs, ('P_gen', 'P[MW]'))
+            #gens += 1
+#print(gens)
+#i = 1
 
-switch_off.append(get_power_unit('SteelPlant', 'Load').eid)
-world.connect(plant_input, steel_plant, 'P[MW]')
-world.connect(steel_plant, get_power_unit('SteelPlant'), ('P[MW]', 'P_load[MW]'))
-world.connect(steel_plant, outputs, 'P[MW]')
-world.connect(get_power_unit('SteelPlant'), outputs, 'P[MW]')
+#print(get_power_unit('SteelPlant', first=False))
+
+for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
+    world.connect(steel_plant, v, (f'L{i+1}-P[MW]', 'P_load[MW]'))
+
+#for i, v in enumerate([v for k, v in power_units.items()
+#                            if 'SteelPlant' in k and '-Bus-' in k]):
+#    world.connect(steel_plant, v[0], (f'L{i+1}-P[MW]', 'P_load[MW]'))
+    #if ('SteelPlant' in n) and ('-Load-' in n):
+        #switch_off.append(v[0].eid)
+        #world.connect(v[0], outputs, 'P[MW]')
+    #if ('SteelPlant' in n) and ('-Bus-' in n):
+        #world.connect(steel_plant, v[0], (f'L{i+1}-P[MW]', 'P_load[MW]'))
+        #world.connect(v[0], outputs, 'P[MW]')
+        #print(v[0], (f'L{i}-P[MW]', 'P_load[MW]'))
+        #i += 1
+        
+        #world.connect(plant_input, steel_plant, 'P[MW]')
+        #world.connect(steel_plant, get_power_unit('SteelPlant'), ('P[MW]', 'P_load[MW]'))
+        #world.connect(steel_plant, outputs, 'P[MW]')
+        #world.connect(get_power_unit('SteelPlant'), outputs, 'P[MW]')
 
 
+#for e in grid_model.children:
+#    if e.model == 'Line':
+#           world.connect(e, outputs, 'loading[%]')
 
+#sys.exit()
 world.connect(power_units['ExternalGrid'][0], outputs, 'P[MW]')
+world.connect(steel_plant, outputs, 'P[MW]')
 world.connect(renewables, outputs, 'P[MW]')
 world.connect(conventional, outputs, 'P[MW]')
 
-grid_sim.disable_elements(switch_off)
+#grid_sim.disable_elements(switch_off)
 
 print(f'Renewable power units created: {len(units)}')
-print(f'Power grid created: {len(power_units)}')
+print(f'Power grid elements created: {len(power_units)}')
 
 mosaik.util.plot_dataflow_graph(world, hdf5path=os.path.join(results_dir, '.hdf5'), show_plot=False)
 world.run(until=END, print_progress='individual')

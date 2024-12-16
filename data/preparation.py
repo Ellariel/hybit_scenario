@@ -31,13 +31,17 @@ def zopen(archive):
         print(f'File not found: "{archive}"')
 
 
+## BASE CONFIG
+base_dir = os.path.dirname(__file__)
+
+
 ## WEATHER DATA PREPARATION
 
 delimiter = ';'
-datafile_path_temp = '10minutenwerte_TU_00691_20200101_20231231_hist.zip'
-datafile_path_solar = '10minutenwerte_SOLAR_00691_20200101_20231231_hist.zip'
-datafile_path_wind = '10minutenwerte_wind_00691_20200101_20231231_hist.zip'
-weather_file = 'weather_data_2023.csv'
+datafile_path_temp = os.path.join(base_dir, '10minutenwerte_TU_00691_20200101_20231231_hist.zip')
+datafile_path_solar = os.path.join(base_dir, '10minutenwerte_SOLAR_00691_20200101_20231231_hist.zip')
+datafile_path_wind = os.path.join(base_dir, '10minutenwerte_wind_00691_20200101_20231231_hist.zip')
+weather_file = os.path.join(base_dir, 'weather_data_2023.csv')
 
 # open the files for reading
 datafile_temp = zopen(datafile_path_temp)
@@ -71,8 +75,8 @@ weather_file.write_text(f"WeatherData\n{weather_file.read_text()}")
 
 delimiter = ','
 correct_year = 2023
-datafile_plant = 'profileA_1.15TW.csv'
-plant_file = 'steel_plant_consumption_2023.csv'
+datafile_plant = os.path.join(base_dir, 'profileA_1.15TW.csv')
+plant_file = os.path.join(base_dir, 'steel_plant_consumption_2023.csv')
 
 datafile_plant = pd.read_csv(datafile_plant, delimiter=delimiter, parse_dates=True, low_memory=False)
 datafile_plant['Time'] = pd.to_datetime(datafile_plant['Time'], utc=False)
@@ -82,7 +86,14 @@ ydiff = correct_year - datafile_plant.index[0].year
 datafile_plant.index += pd.offsets.DateOffset(years=ydiff) 
 datafile_plant.reset_index(inplace=True)
 
-datafile_plant[['Time', 'P[MW]']].to_csv(plant_file, index=False)
+datafile_plant['L1-P[MW]'] = datafile_plant['P[MW]'] / 4
+datafile_plant['L2-P[MW]'] = datafile_plant['P[MW]'] / 4
+datafile_plant['L3-P[MW]'] = datafile_plant['P[MW]'] / 4
+datafile_plant['L4-P[MW]'] = datafile_plant['P[MW]'] / 4
+
+datafile_plant[['Time', 'P[MW]',
+                'L1-P[MW]', 'L2-P[MW]',
+                'L3-P[MW]', 'L4-P[MW]']].to_csv(plant_file, index=False)
 plant_file = Path(plant_file)
 plant_file.write_text(f"SteelPlant\n{plant_file.read_text()}")
 

@@ -554,17 +554,21 @@ def make_grid_model(**kwargs):
         # generators
         ## not needed, generators added as simulators in the mosaik-scenario
         #pp.create_gen(net,bus=b3, p_mw = 0) # netto power of KW (according to Marktstammdatenregister: https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/4443193)
+        '''
         for i, g in net.bus.iterrows():
                 if 'PV' in g['name'] or 'WT' in g['name']:
                         pp.create_sgen(net, i, p_mw=0.1, name=f"{g['name']}-StaticGen-{i}")
+        '''
 
         # loads
         #example: #pp.create_load(net, bus=b3, p_mw=0.1, q_mvar=0.05)
+        '''
         for i, g in net.bus.iterrows():
                 if 'SteelPlant' in g['name']: # steel plan load just the first one
                         pp.create_load(net, i, p_mw=1.0, q_mvar=0.5, name=f"{g['name']}-Load-{i}")
                         #break
-
+        '''
+        
         net.bus['name'] = [f'{j}-Bus-{i}' for i, j in enumerate(net.bus['name'])]
 
         pp.runpp(net, numba=False)
