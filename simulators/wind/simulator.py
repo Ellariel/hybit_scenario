@@ -41,10 +41,7 @@ class Simulator(mosaik_api_v3.Simulator):
 
     def init(self, sid, time_resolution, power_curve_csv=None, step_size=None, gen_neg=False):
         self.sid = sid
-        if power_curve_csv is not None:
-            self.csv_path = power_curve_csv
-        else:
-            raise RuntimeError('no csv data is given!')
+        self.csv_path = power_curve_csv
         if step_size is not None:
             self.step_size = step_size
         else:
@@ -55,13 +52,14 @@ class Simulator(mosaik_api_v3.Simulator):
     def create(self, num, model, **model_params):
         entities = []
 
-        max_power = 0.1
-        if 'max_power' in model_params.keys():
-            max_power = model_params['max_power']
+        max_power = model_params.get('max_power', 0.1)
+        power_curve = model_params.get('power_curve', self.csv_path)
+        if power_curve is None:
+            raise RuntimeError('no csv data for power curve is given!')
 
         for i in range(num):
             eid = '%s_%s' % (model, next(self.eid_counters.get('WT')))
-            self._entities[eid] = wt.WindTurbine(max_power=max_power, path=self.csv_path)
+            self._entities[eid] = wt.WindTurbine(max_power=max_power, path=power_curve)
             entities.append({'eid': eid, 'type': model, 'rel': []})
         return entities
 

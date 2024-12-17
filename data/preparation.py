@@ -76,7 +76,7 @@ weather_file.write_text(f"WeatherData\n{weather_file.read_text()}")
 delimiter = ','
 correct_year = 2023
 datafile_plant = os.path.join(base_dir, 'profileA_1.15TW.csv')
-plant_file = os.path.join(base_dir, 'steel_plant_consumption_2023.csv')
+steel_plant_file = os.path.join(base_dir, 'steel_plant_consumption_2023.csv')
 
 datafile_plant = pd.read_csv(datafile_plant, delimiter=delimiter, parse_dates=True, low_memory=False)
 datafile_plant['Time'] = pd.to_datetime(datafile_plant['Time'], utc=False)
@@ -85,15 +85,27 @@ datafile_plant.set_index('Time', inplace=True)
 ydiff = correct_year - datafile_plant.index[0].year
 datafile_plant.index += pd.offsets.DateOffset(years=ydiff) 
 datafile_plant.reset_index(inplace=True)
-
 datafile_plant['L1-P[MW]'] = datafile_plant['P[MW]'] / 4
 datafile_plant['L2-P[MW]'] = datafile_plant['P[MW]'] / 4
 datafile_plant['L3-P[MW]'] = datafile_plant['P[MW]'] / 4
 datafile_plant['L4-P[MW]'] = datafile_plant['P[MW]'] / 4
-
 datafile_plant[['Time', 'P[MW]',
                 'L1-P[MW]', 'L2-P[MW]',
-                'L3-P[MW]', 'L4-P[MW]']].to_csv(plant_file, index=False)
-plant_file = Path(plant_file)
-plant_file.write_text(f"SteelPlant\n{plant_file.read_text()}")
+                'L3-P[MW]', 'L4-P[MW]']].to_csv(steel_plant_file, index=False)
+steel_plant_file = Path(steel_plant_file)
+steel_plant_file.write_text(f"SteelPlant\n{steel_plant_file.read_text()}")
 
+
+## POWER PLANTS DATA PREPARATION
+
+
+power_plant_file = os.path.join(base_dir, 'power_plants_generation_2023.csv')
+datafile_plant = datafile_plant[['Time', 'P[MW]']]
+
+datafile_plant['P[MW]'] = datafile_plant['P[MW]'] * 0.90
+datafile_plant['G1-P[MW]'] = datafile_plant['P[MW]'] / 2
+datafile_plant['G2-P[MW]'] = datafile_plant['P[MW]'] / 2
+datafile_plant[['Time', 'P[MW]',
+                'G1-P[MW]', 'G2-P[MW]']].to_csv(power_plant_file, index=False)
+power_plant_file = Path(power_plant_file)
+power_plant_file.write_text(f"PowerPlant\n{power_plant_file.read_text()}")

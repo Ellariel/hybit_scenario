@@ -37,17 +37,18 @@ sim_config = {
     }
 
     ## Preperation
-END = 24 * 60 * 60 * 1# one day in seconds
-START_DATE = '2023-05-01 00:00:00'
+END = 24 * 60 * 60 * 1 # one day in seconds
+START_DATE = '2023-04-26 00:00:00' # '2023-05-01 00:00:00'
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
 WEATHER_DATA = 'weather_data_2023.csv'
 STEEL_PLANT_DATA = 'steel_plant_consumption_2023.csv'
+POWER_PLANTS_DATA = 'power_plants_generation_2023.csv'
 GRID_FILE = 'hybit_egrid_cell1.json'
 GEN_NEG = False
 
 
-base_dir = './'
+base_dir = os.path.dirname(__file__)
 output_file = 'results.csv'
 data_dir = os.path.join(base_dir, 'data')
 results_dir = os.path.join(base_dir, 'results')
@@ -68,27 +69,31 @@ print(f"Grid model of {len(grid_model.load)} loads,\
 
     ## Set up the "world" of the scenario
 world = mosaik.World(sim_config)
-output_sim = world.start('OutputSim', start_date = START_DATE,output_file=output_file)
+output_sim = world.start('OutputSim', sim_id="OutputSim", start_date = START_DATE,output_file=output_file)
 pv_sim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z", gen_neg=GEN_NEG)
 flex_sim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
-#plant_sim = world.start("FlexSim", sim_id="PlantSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=not GEN_NEG))
-grid_sim = world.start('GridSim', step_size=STEP_SIZE) # step_size=None is important to have the grid model triggered by any input
+grid_sim = world.start('GridSim', sim_id='GridSim', step_size=STEP_SIZE) # step_size=None is important to have the grid model triggered by any input
 weater_input = world.start("InputSim", 
+                            sim_id='WeaterSim',
                             sim_start=START_DATE, 
                             date_format=DATE_FORMAT,
                             datafile=os.path.join(data_dir, WEATHER_DATA))
-plant_input = world.start("InputSim", 
+steel_plant_input = world.start("InputSim", 
+                            sim_id='SteelPlantSim',
                             sim_start=START_DATE, 
                             date_format=DATE_FORMAT,
                             datafile=os.path.join(data_dir, STEEL_PLANT_DATA))
+power_plant_input = world.start("InputSim", 
+                            sim_id='PowerPlantSim',
+                            sim_start=START_DATE, 
+                            date_format=DATE_FORMAT,
+                            datafile=os.path.join(data_dir, POWER_PLANTS_DATA))
+
 
 outputs = output_sim.CSVWriter(buff_size=STEP_SIZE)
 weather = weater_input.WeatherData.create(1)[0]
-
-#plant_input = plant_input.SteelPlant.create(1)[0]
-#steel_plant = plant_sim.FLSim.create(1)[0]
-steel_plant = plant_input.SteelPlant.create(1)[0]
-
+steel_plant = steel_plant_input.SteelPlant.create(1)[0]
+power_plant = power_plant_input.PowerPlant.create(1)[0]
 grid_model = grid_sim.Grid(json=grid_file)
 extra_info = grid_sim.get_extra_info()
 power_units = {v['name'] : (e, v) for k, v in extra_info.items()
@@ -153,6 +158,19 @@ for id, setup in MODEL_SETUPS.items():
 for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
     world.connect(steel_plant, v, (f'L{i+1}-P[MW]', 'P_load[MW]'))
 
+hvb03 = get_power_unit('Mittelsbueren')
+world.connect(power_plant, hvb03, (f'P[MW]', 'P_gen[MW]'))
+world.connect(power_plant, conventional, 'P[MW]')
+
+#world.connect(power_plant, hvb03, (f'G1-P[MW]', 'P_gen[MW]'))
+#world.connect(power_plant, hvb03, (f'G2-P[MW]', 'P_gen[MW]'))
+#world.connect(power_plant, conventional, (f'G1-P[MW]', 'P[MW]'))
+#world.connect(power_plant, conventional, (f'G2-P[MW]', 'P[MW]'))
+#print() # 
+#sys.exit()
+
+##hvb03-Mittelsbueren
+
 #for i, v in enumerate([v for k, v in power_units.items()
 #                            if 'SteelPlant' in k and '-Bus-' in k]):
 #    world.connect(steel_plant, v[0], (f'L{i+1}-P[MW]', 'P_load[MW]'))
@@ -178,6 +196,7 @@ for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
 #sys.exit()
 world.connect(power_units['ExternalGrid'][0], outputs, 'P[MW]')
 world.connect(steel_plant, outputs, 'P[MW]')
+world.connect(power_plant, outputs, 'P[MW]')
 world.connect(renewables, outputs, 'P[MW]')
 world.connect(conventional, outputs, 'P[MW]')
 
