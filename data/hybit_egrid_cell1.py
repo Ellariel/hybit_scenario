@@ -58,8 +58,11 @@ def make_grid_model(**kwargs):
         hvb24 = pp.create_bus(net, vn_kv=110., name="hvb24-WT28")
         hvb25 = pp.create_bus(net, vn_kv=110., name="hvb25-WT29")
 
-        hvb26 = pp.create_bus(net, vn_kv=110., name="hvb26-Elektrolyseur")
-        hvb27 = pp.create_bus(net, vn_kv=110., name="hvb27-Battery")
+        #hvb26 = pp.create_bus(net, vn_kv=110., name="hvb26-Elektrolyseur")
+        #hvb27 = pp.create_bus(net, vn_kv=110., name="hvb27-Battery")
+
+        hvb26 = pp.create_bus(net, vn_kv=110., name="hvb26-PowerPlant-KW")
+        hvb27 = pp.create_bus(net, vn_kv=110., name="hvb27-PowerPlant-GUD")
 
         # busses 20 kV - medium voltage distribution network
         ## it's only given, that the (wind) power plants are connected to medium voltage - don't know how to find out the exact voltage level
@@ -288,8 +291,10 @@ def make_grid_model(**kwargs):
         # Electrolyser
         #pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
         # assumed electrolyzer to be next to gas power plant Mittelbüren
-        pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
-        pp.create_line(net, hvb03, hvb27, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Battery") #LENGTH CHECK!!
+        #pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
+        #pp.create_line(net, hvb03, hvb27, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Battery") #LENGTH CHECK!!
+        pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-PowerPlant-KW") #LENGTH CHECK!!
+        pp.create_line(net, hvb03, hvb27, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-PowerPlant-GUD") #LENGTH CHECK!!
 
         # WP Weserwind - all lengths oriented at streets
         pp.create_line(net, hvb05, hvb07, std_type=cs_110kv_std_type, length_km=0.46, name="WT5-WT7_WP Weserwind")

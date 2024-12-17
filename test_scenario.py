@@ -116,7 +116,7 @@ def get_power_unit(key, type='Bus', first=True):
         return units[0]
     return units
 
-switch_off = []
+#switch_off = []
 units = {}
 #gens = 0
 for id, setup in MODEL_SETUPS.items():
@@ -151,9 +151,15 @@ for id, setup in MODEL_SETUPS.items():
 for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
     world.connect(steel_plant, v, (f'L{i+1}-P[MW]', 'P_load[MW]'))
 
-hvb03 = get_power_unit('Mittelsbueren')
-world.connect(power_plant, hvb03, (f'P[MW]', 'P_gen[MW]'))
+#hvb03 = get_power_unit('Mittelsbueren')
+#world.connect(power_plant, hvb03, (f'P[MW]', 'P_gen[MW]'))
+#world.connect(power_plant, conventional, 'P[MW]')
+
 world.connect(power_plant, conventional, 'P[MW]')
+for i, v in enumerate(get_power_unit('PowerPlant', first=False)):
+    world.connect(power_plant, v, (f'G{i+1}-P[MW]', 'P_gen[MW]'))
+
+
 
 #world.connect(power_plant, hvb03, (f'G1-P[MW]', 'P_gen[MW]'))
 #world.connect(power_plant, hvb03, (f'G2-P[MW]', 'P_gen[MW]'))
