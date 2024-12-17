@@ -12,6 +12,7 @@ meta = {
             'public': True,
             'params': [  # Define the parameters of the related class
                 'max_power',  # Max Rated Power
+                'power_curve', # Path to pover curve CSV file
             ],
             'attrs': ['P_gen',  # Generated Instant Power
                       'wind_speed',  # Instant Wind Speed

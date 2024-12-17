@@ -71,6 +71,7 @@ print(f"Grid model of {len(grid_model.load)} loads,\
 world = mosaik.World(sim_config)
 output_sim = world.start('OutputSim', sim_id="OutputSim", start_date = START_DATE,output_file=output_file)
 pv_sim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z", gen_neg=GEN_NEG)
+wt_sim = world.start("WTSim", sim_id=f"WTSim", step_size=STEP_SIZE, gen_neg=GEN_NEG)
 flex_sim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
 grid_sim = world.start('GridSim', sim_id='GridSim', step_size=STEP_SIZE) # step_size=None is important to have the grid model triggered by any input
 weater_input = world.start("InputSim", 
@@ -115,7 +116,6 @@ def get_power_unit(key, type='Bus', first=True):
         return units[0]
     return units
 
-wt_sims = {}
 switch_off = []
 units = {}
 #gens = 0
@@ -132,15 +132,8 @@ for id, setup in MODEL_SETUPS.items():
             #gens += 1
             #world.connect(units[id], outputs, ('p_mw', 'P[MW]'))
         elif 'WT' in id:
-            model_type = setup["module_type"]
-            wtsim = wt_sims.get(model_type)
-            if not wtsim:
-                wtsim = world.start("WTSim", sim_id=f"WTSim-{model_type}",
-                                power_curve_csv=os.path.join(data_dir, WT_MODULES[model_type]),
-                                step_size=STEP_SIZE, 
-                                gen_neg=GEN_NEG)
-                wt_sims[model_type] = wtsim
-            units[id] = wtsim.WT(max_power=setup['max_power'])
+            units[id] = wt_sim.WT(max_power=setup['max_power'], 
+                                  power_curve=os.path.join(data_dir, WT_MODULES[setup["module_type"]]))
             world.connect(weather, units[id], 'wind_speed')
             world.connect(units[id], get_power_unit(id), ('P_gen', 'P_gen[MW]'))
 
