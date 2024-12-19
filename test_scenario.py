@@ -205,7 +205,7 @@ print(f'Renewable power units created: {len(units)}')
 print(f'Power grid elements created: {len(power_units)}')
 
 mosaik.util.plot_dataflow_graph(world, hdf5path=os.path.join(results_dir, '.hdf5'), show_plot=False)
-world.run(until=END, print_progress='individual')
+world.run(until=END, print_progress=True)#'individual')
 
     ## testing part
 print(f'Results were saved: {output_file}')
