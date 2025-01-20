@@ -105,7 +105,7 @@ power_units = {v['name'] : (e, v) for k, v in extra_info.items()
                                          'Load' in v['name'] or\
                                          'Bus' in v['name'])}
 renewables = flex_sim.FLSim.create(1)[0] # summator for renewable power
-conventional = flex_sim.FLSim.create(1)[0] # summator for conventional power
+conventionals = flex_sim.FLSim.create(1)[0] # summator for conventional power
 
 def get_power_unit(key, type='Bus', first=True):
     units = []
@@ -155,7 +155,7 @@ for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
 #world.connect(power_plant, hvb03, (f'P[MW]', 'P_gen[MW]'))
 #world.connect(power_plant, conventional, 'P[MW]')
 
-world.connect(power_plant, conventional, 'P[MW]')
+world.connect(power_plant, conventionals, 'P[MW]')
 for i, v in enumerate(get_power_unit('PowerPlant', first=False)):
     world.connect(power_plant, v, (f'G{i+1}-P[MW]', 'P_gen[MW]'))
 
@@ -197,7 +197,7 @@ world.connect(power_units['ExternalGrid'][0], outputs, 'P[MW]')
 world.connect(steel_plant, outputs, 'P[MW]')
 world.connect(power_plant, outputs, 'P[MW]')
 world.connect(renewables, outputs, 'P[MW]')
-world.connect(conventional, outputs, 'P[MW]')
+world.connect(conventionals, outputs, 'P[MW]')
 
 #grid_sim.disable_elements(switch_off)
 
