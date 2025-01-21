@@ -51,7 +51,7 @@ datafile_plant = os.path.join(base_dir, datafile_plant[:-4])
 ## TODAY
 correct_year = 2023
 split_lines = 4
-scale_to = 1.0 # TWh/a
+scale_to = 1.15 # TWh/a
 steel_plant_file = os.path.join(base_dir, f'steel_plant_consumption_{correct_year}.csv')
 plant_data = pd.read_csv(datafile_plant, parse_dates=True, low_memory=False, skiprows=1)
 plant_data['Time'] = pd.to_datetime(plant_data['Time'], utc=False)
@@ -63,13 +63,14 @@ plant_data.reset_index(inplace=True)
 target_capacity = scale_to * 10 ** 6 # TW -> MW
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
+total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
 
 for i in range(1, split_lines + 1):
     plant_data[f'L{i}-P[MW]'] = plant_data['P[MW]'] / split_lines
 plant_data.to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"SteelPlant\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_demand:", total_capacity, "TWh/a")
 
 ## FUTURE
 correct_year = 2030
@@ -86,13 +87,14 @@ plant_data.reset_index(inplace=True)
 target_capacity = scale_to * 10 ** 6 # TW -> MW
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
+total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
 
 for i in range(1, split_lines + 1):
     plant_data[f'L{i}-P[MW]'] = plant_data['P[MW]'] / split_lines
 plant_data.to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"SteelPlant\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_demand:", total_capacity, "TWh/a")
 
 
 ## POWER PLANT DATA PREPARATION
@@ -104,7 +106,7 @@ datafile_plant = os.path.join(base_dir, datafile_plant[:-4])
 ## TODAY
 correct_year = 2023
 split_lines = 2
-scale_to = 1.0 # TWh/a
+scale_to = 1.15 # TWh/a
 limit_to = 0.95 # %
 steel_plant_file = os.path.join(base_dir, f'power_plant_generation_{correct_year}.csv')
 plant_data = pd.read_csv(datafile_plant, parse_dates=True, low_memory=False, skiprows=1)
@@ -118,13 +120,14 @@ target_capacity = scale_to * 10 ** 6 # TW -> MW
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 plant_data['P[MW]'] = plant_data['P[MW]'] * limit_to
+total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
 
 for i in range(1, split_lines + 1):
     plant_data[f'G{i}-P[MW]'] = plant_data['P[MW]'] / split_lines
 plant_data.to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"PowerPlant\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_capacity:", total_capacity, "TWh/a")
 
 ## FUTURE
 correct_year = 2030
@@ -143,13 +146,14 @@ target_capacity = scale_to * 10 ** 6 # TW -> MW
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 plant_data['P[MW]'] = plant_data['P[MW]'] * limit_to
+total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
 
 for i in range(1, split_lines + 1):
     plant_data[f'G{i}-P[MW]'] = plant_data['P[MW]'] / split_lines
 plant_data.to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"PowerPlant\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_capacity:", total_capacity, "TWh/a")
 
 
 ## HYDROGEN DEMAND DATA PREPARATION
@@ -172,10 +176,11 @@ plant_data.reset_index(inplace=True)
 target_capacity = scale_to * 10 ** 6 # Mt -> t
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['HD[tH2]'] = plant_data['P[MW]'] * target_capacity / total_capacity
+total_capacity = plant_data['HD[tH2]'].sum() / 10 ** 6
 plant_data[['Time', 'HD[tH2]']].to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"Hydrogen\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_demand:", total_capacity, "MtH2/a")
 
 
 ## ELECTROLYZER DATA PREPARATION
@@ -198,7 +203,8 @@ plant_data.reset_index(inplace=True)
 target_capacity = scale_to * 10 ** 6 # TW -> MW
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
+total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
 plant_data.to_csv(steel_plant_file, index=False)
 plant_file = Path(steel_plant_file)
 plant_file.write_text(f"Electrolyzer\n{plant_file.read_text()}")
-print(steel_plant_file)
+print(steel_plant_file, "total_demand:", total_capacity, "TWh/a")
