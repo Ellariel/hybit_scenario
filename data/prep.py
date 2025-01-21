@@ -105,7 +105,7 @@ datafile_plant = os.path.join(base_dir, datafile_plant[:-4])
 correct_year = 2023
 split_lines = 2
 scale_to = 1.0 # TWh/a
-limit_to = 0.9 # %
+limit_to = 0.95 # %
 steel_plant_file = os.path.join(base_dir, f'power_plant_generation_{correct_year}.csv')
 plant_data = pd.read_csv(datafile_plant, parse_dates=True, low_memory=False, skiprows=1)
 plant_data['Time'] = pd.to_datetime(plant_data['Time'], utc=False)

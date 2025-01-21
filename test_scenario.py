@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-from data.params import MODEL_SETUPS, WT_MODULES, pv_model_params
+from data.config import MODEL_SETUPS, WT_MODULES, pv_model_params
 
 sim_config = {
         'WTSim': {
@@ -41,12 +41,11 @@ END = 24 * 60 * 60 * 1 # one day in seconds
 START_DATE = '2023-04-26 00:00:00' # '2023-05-01 00:00:00'
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
-WEATHER_DATA = 'weather_data_2023.csv'
+WEATHER_DATA = 'weather_data_bremen_2020_2023.csv'
 STEEL_PLANT_DATA = 'steel_plant_consumption_2023.csv'
-POWER_PLANTS_DATA = 'power_plants_generation_2023.csv'
+POWER_PLANT_DATA = 'power_plant_generation_2023.csv'
 GRID_FILE = 'hybit_egrid_cell1.json'
 GEN_NEG = False
-
 
 base_dir = os.path.dirname(__file__)
 output_file = 'results.csv'
@@ -88,8 +87,7 @@ power_plant_input = world.start("InputSim",
                             sim_id='PowerPlantSim',
                             sim_start=START_DATE, 
                             date_format=DATE_FORMAT,
-                            datafile=os.path.join(data_dir, POWER_PLANTS_DATA))
-
+                            datafile=os.path.join(data_dir, POWER_PLANT_DATA))
 
 outputs = output_sim.CSVWriter(buff_size=STEP_SIZE)
 weather = weater_input.WeatherData.create(1)[0]
@@ -116,9 +114,7 @@ def get_power_unit(key, type='Bus', first=True):
         return units[0]
     return units
 
-#switch_off = []
 units = {}
-#gens = 0
 for id, setup in MODEL_SETUPS.items():
         if 'PV' in id:
             units[id] = pv_sim.Photovoltaic(**pv_model_params(**setup))
@@ -143,10 +139,6 @@ for id, setup in MODEL_SETUPS.items():
             world.connect(units[id], renewables, ('P_gen', 'P[MW]'))
             #world.connect(units[id], outputs, ('P_gen', 'P[MW]'))
             #gens += 1
-#print(gens)
-#i = 1
-
-#print(get_power_unit('SteelPlant', first=False))
 
 for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
     world.connect(steel_plant, v, (f'L{i+1}-P[MW]', 'P_load[MW]'))

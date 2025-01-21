@@ -20,7 +20,7 @@ def test_sims():
     sys.path.append(dir)
     print('dir:', dir)
 
-    from data.params import MODEL_SETUPS, WT_MODULES, pv_model_params
+    from data.config import MODEL_SETUPS, WT_MODULES, pv_model_params
     
     sim_config = {
         'WTSim': {
