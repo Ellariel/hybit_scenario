@@ -45,9 +45,11 @@ class CtrlSimulator(mosaik_api.Simulator):
     } 
     """
 
+
     def __init__(self) -> None:
         super().__init__(META)
     
+
     def init(self, sid: str, time_resolution: float = 1, step_size: int = STEP_SIZE, sim_params: Dict = {}):
         self.gen_neg = sim_params.get('gen_neg', False)
         self.scenario_type = sim_params.get('scenario_type', 'A')
@@ -57,6 +59,7 @@ class CtrlSimulator(mosaik_api.Simulator):
         self.cache = {}
         self.meta["models"]["Ctrl"]["attrs"] += sim_params.get('ctrl_attributes', [])
         return self.meta
+
 
     def create(self, num: int, model: str, **model_params: Any) -> List[CreateResult]:
         entities = []
@@ -68,17 +71,7 @@ class CtrlSimulator(mosaik_api.Simulator):
                 "type": model,
             })
         return entities
-    
-    def control(self):
-        print(self.cache)
-        
 
-        result = 0
-
-        if self.gen_neg:
-            result = abs(result) * (-1)
-
-        return result
 
     def step(self, time, inputs, max_advance):
         # {'Ctrl-0': {'P[MW]': {'SteelPlantSim.SteelPlant_0': 9.259042859671064}}}
@@ -88,7 +81,37 @@ class CtrlSimulator(mosaik_api.Simulator):
         self.control()
         return time + self.step_size
      
+
     def get_data(self, outputs: OutputRequest) -> OutputData:
         return {eid: {attr: self.cache[eid][attr]
                             for attr in attrs
                                } for eid, attrs in outputs.items()}
+    
+
+    def control(self):
+        for eid in self.cache.keys():
+            e = self.cache[eid]
+            r_params = [a for a in e.keys() if 'WT' in a or 'PV' in a]
+            s_params = [a for a in e.keys() if 'SteelPlant' in a]
+            p_params = [a for a in e.keys() if 'PowerPlant' in a]
+
+            renewables = abs(sum([e[a] for a in r_params]))
+            conventionals = abs(sum([e[a] for a in p_params]))
+            steel_plant = abs(sum([e[a] for a in s_params]))
+
+            if self.scenario_type == 'A':
+                adjusted = steel_plant - renewables
+                conventionals = min(conventionals, adjusted)
+                
+                r = conventionals / len(p_params)
+                if self.gen_neg:
+                    r = abs(r) * (-1)
+                for a in p_params:
+                    e[a] = r
+
+            else:
+                pass        
+
+
+        
+

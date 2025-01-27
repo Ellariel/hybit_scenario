@@ -40,6 +40,7 @@ sim_config = {
     }
 
     ## Preperation
+SCENARIO_TYPE = 'A'
 END = 24 * 60 * 60 * 1 # one day in seconds
 START_DATE = '2023-03-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
@@ -48,13 +49,13 @@ WEATHER_DATA = 'weather_data_bremen_2020_2023.csv'
 STEEL_PLANT_DATA = 'steel_plant_consumption_2023.csv'
 POWER_PLANT_DATA = 'power_plant_generation_2023.csv'
 GRID_FILE = 'hybit_egrid_cell1.json'
-GEN_NEG = False
+GEN_NEG = True
 
 base_dir = os.path.dirname(__file__)
-output_file = 'results.csv'
+output_file = f'results_{SCENARIO_TYPE}.csv'
 data_dir = os.path.join(base_dir, 'data')
 results_dir = os.path.join(base_dir, 'results')
-output_file = os.path.join(results_dir, f'a_{output_file}')
+output_file = os.path.join(results_dir, output_file)
 os.makedirs(data_dir, exist_ok=True)
 os.makedirs(results_dir, exist_ok=True)
 
@@ -71,7 +72,7 @@ print(f"Grid model of {len(grid_model.load)} loads,\
 
 world = mosaik.World(sim_config)
 
-output_sim = world.start('OutputSim', sim_id="OutputSim", start_date = START_DATE,output_file=output_file)
+output_sim = world.start('OutputSim', sim_id="OutputSim", start_date=START_DATE, output_file=output_file)
 outputs = output_sim.CSVWriter(buff_size=STEP_SIZE)
 
 weater_input = world.start("InputSim", 
@@ -137,8 +138,12 @@ for id, setup in MODEL_SETUPS.items():
             world.connect(weather, wt[-1], 'wind_speed')
             ctrl_attributes[f'WT-{len(wt)}-P[MW]'] = {'output': get_power_unit(id), 'input': wt[-1]}
 
-ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes))
+ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
+                                                                                         scenario_type=SCENARIO_TYPE,
+                                                                                         gen_neg=GEN_NEG))
 ctrl = ctrl_sim.Ctrl.create(1)[0]
+
+world.connect(power_units['ExternalGrid'][0], outputs, ('P[MW]', 'ExternalGrid-P[MW]'))
 
 for k, v in ctrl_attributes.items():
     if 'PV' in k:
@@ -162,97 +167,3 @@ mosaik.util.plot_dataflow_graph(world, hdf5path=os.path.join(results_dir, '.hdf5
 world.run(until=END, print_progress=True)#'individual')
 
 print(f'Results were saved: {output_file}')
-
-sys.exit()
-
-
-
-flex_sim = world.start("FlexSim", sim_id="FlexSim", step_size=STEP_SIZE, sim_params=dict(gen_neg=False))
-
-
-
-
-renewables = flex_sim.FLSim.create(1)[0] # summator for renewable power
-conventionals = flex_sim.FLSim.create(1)[0] # summator for conventional power
-
-
-
-units = {}
-for id, setup in MODEL_SETUPS.items():
-        if 'PV' in id:
-            units[id] = pv_sim.Photovoltaic(**pv_model_params(**setup))
-            world.connect(weather, units[id], 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2')
-            world.connect(units[id], get_power_unit(id), ('p_mw', 'P_gen[MW]'))
-
-            #switch_off.append(get_power_unit(id, 'StaticGen').eid)
-            #world.connect(get_power_unit(id, 'StaticGen'), outputs, 'P[MW]')
-
-            world.connect(units[id], renewables, ('p_mw', 'P[MW]'))
-            #gens += 1
-            #world.connect(units[id], outputs, ('p_mw', 'P[MW]'))
-        elif 'WT' in id:
-            units[id] = wt_sim.WT(max_power=setup['max_power'], 
-                                  power_curve_csv=os.path.join(data_dir, WT_MODULES[setup["module_type"]]))
-            world.connect(weather, units[id], 'wind_speed')
-            world.connect(units[id], get_power_unit(id), ('P_gen', 'P_gen[MW]'))
-
-            #switch_off.append(get_power_unit(id, 'StaticGen').eid)
-            #world.connect(get_power_unit(id, 'StaticGen'), outputs, 'P[MW]')
-
-            world.connect(units[id], renewables, ('P_gen', 'P[MW]'))
-            #world.connect(units[id], outputs, ('P_gen', 'P[MW]'))
-            #gens += 1
-
-'''
-for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
-    world.connect(steel_plant, v, (f'L{i+1}-P[MW]', 'P_load[MW]'))
-
-world.connect(power_plant, conventionals, 'P[MW]')
-for i, v in enumerate(get_power_unit('PowerPlant', first=False)):
-    world.connect(power_plant, v, (f'G{i+1}-P[MW]', 'P_gen[MW]'))
-'''
-
-
-
-
-#world.connect(steel_plant, ctrl, 'P[MW]')
-#for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
-#    print(ctrl_sim.meta)
-#    world.connect(ctrl, v, (f'SteelPlant-{i+1}-P[MW]', 'P_load[MW]'))
-#
-#world.connect(power_plant, ctrl, 'P[MW]')
-
-
-world.connect(power_units['ExternalGrid'][0], outputs, 'P[MW]')
-world.connect(steel_plant, outputs, 'P[MW]')
-world.connect(power_plant, outputs, 'P[MW]')
-world.connect(renewables, outputs, 'P[MW]')
-world.connect(conventionals, outputs, 'P[MW]')
-
-#grid_sim.disable_elements(switch_off)
-
-print(f'Renewable power units created: {len(units)}')
-print(f'Power grid elements created: {len(power_units)}')
-
-mosaik.util.plot_dataflow_graph(world, hdf5path=os.path.join(results_dir, '.hdf5'), show_plot=False)
-world.run(until=END, print_progress=True)#'individual')
-
-    ## testing part
-print(f'Results were saved: {output_file}')
-#r = pd.read_csv(output_file)
-#s_test_sum = 0
-#s_cols = ['WTSim-E82_2000kw.WT_2-P[MW]',
-#            'WTSim-ANBONUS_2300kw.WT_3-P[MW]', 
-#            'PVSim.Photovoltaic-15-P[MW]', 
-#            'PVSim.Photovoltaic-6-P[MW]']
-#
-#for c in s_cols:
-#        s_test_sum += r[c].sum()
-#
-#print(f'{s_test_sum:.2f}')
-#
-#print(f"{r['FlexSim.FLSim-0-P[MW]'].sum():.2f}")
-#
-#if __name__ == '__main__':
-        
-#        test_sims()
