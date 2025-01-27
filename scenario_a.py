@@ -35,7 +35,7 @@ sim_config = {
                 'python': 'mosaik_components.pandapower:Simulator',
         },
         'CtrlSim': {
-                'python': 'simulators.flexible:SimulatorA',
+                'python': 'simulators.flexible:CtrlSimulator',
         },
     }
 

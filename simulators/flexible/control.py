@@ -30,7 +30,7 @@ META = {
 
 STEP_SIZE = 60*15 
 
-class SimulatorA(mosaik_api.Simulator):
+class CtrlSimulator(mosaik_api.Simulator):
     _sid: str
     """This simulator's ID."""
     _step_size: Optional[int]
@@ -50,6 +50,7 @@ class SimulatorA(mosaik_api.Simulator):
     
     def init(self, sid: str, time_resolution: float = 1, step_size: int = STEP_SIZE, sim_params: Dict = {}):
         self.gen_neg = sim_params.get('gen_neg', False)
+        self.scenario_type = sim_params.get('scenario_type', 'A')
         self.time_resolution = time_resolution
         self.step_size = step_size
         self.sid = sid

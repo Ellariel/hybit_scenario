@@ -1,4 +1,4 @@
 from .flex_simulator import Simulator
-from .control import SimulatorA
+from .control import CtrlSimulator
 
-__all__ = ["Simulator", "SimulatorA"]
+__all__ = ["Simulator", "CtrlSimulator"]
