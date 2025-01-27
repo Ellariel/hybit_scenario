@@ -54,28 +54,23 @@ class SimulatorA(mosaik_api.Simulator):
         self.step_size = step_size
         self.sid = sid
         self.cache = {}
-        self.entities = {}
         self.meta["models"]["Ctrl"]["attrs"] += sim_params.get('ctrl_attributes', [])
         return self.meta
 
     def create(self, num: int, model: str, **model_params: Any) -> List[CreateResult]:
         entities = []
-        for n in range(len(self.entities), len(self.entities) + num):
+        for n in range(len(self.cache), len(self.cache) + num):
             eid = f"{model}-{n}"
-            self.entities[eid] = 0
-            self.cache[eid] = {} # Default value
+            self.cache[eid] = {}
             entities.append({
                 "eid": eid,
                 "type": model,
             })
         return entities
     
-    def control(self, eid, attr):
-        print(eid, attr)
-        SteelPlant = self.cache[eid].get('SteelPlant', 0)
-        PowerPlant = self.cache[eid].get('PowerPlant', 0)
-        PV = self.cache[eid].get('PV', 0)
-        WT = self.cache[eid].get('WT', 0)
+    def control(self):
+        print(self.cache)
+        
 
         result = 0
 
@@ -88,23 +83,11 @@ class SimulatorA(mosaik_api.Simulator):
         # {'Ctrl-0': {'P[MW]': {'SteelPlantSim.SteelPlant_0': 9.259042859671064}}}
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():              
-                if attr == 'P[MW]':
-                    self.cache[eid]['SteelPlant'] = 0
-                    self.cache[eid]['PowerPlant'] = 0
-                    self.cache[eid]['PV'] = 0
-                    self.cache[eid]['WT'] = 0
-                    for unit, value in values.items():
-                        if 'SteelPlant' in unit:
-                            self.cache[eid]['SteelPlant'] += value
-                        elif 'PowerPlant' in unit:
-                            self.cache[eid]['PowerPlant'] += value
-                        elif 'PV' in unit:
-                            self.cache[eid]['PV'] += value
-                        elif 'WT' in unit:
-                            self.cache[eid]['WT'] += value
+                self.cache[eid][attr] = sum(values.values())
+        self.control()
         return time + self.step_size
      
     def get_data(self, outputs: OutputRequest) -> OutputData:
-        return {eid: {attr: self.control(eid, attr) 
+        return {eid: {attr: self.cache[eid][attr]
                             for attr in attrs
                                } for eid, attrs in outputs.items()}
