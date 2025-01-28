@@ -345,10 +345,18 @@ def make_grid_model(**kwargs):
         #pp.create_line(net, mvb01, mvb11, std_type=cs_20kv_std_type, length_km=2, name="Grambke-SteelPlant")
         #pp.create_line(net, mvb01, mvb11, std_type=cs_20kv_std_type, length_km=, name="Grambke-Elektro-Lichtbogenofen")
         #pp.create_line(net, mvb01, mvb12, std_type=cs_20kv_std_type, length_km=, name="Grambke-Direktreduktionsanlage")
+
         pp.create_line(net, mvb01, mvb11a, std_type=cs_20kv_std_type, length_km=2, name="Grambke-SteelPlant") # length: as the crow flies
         pp.create_line(net, mvb01, mvb11b, std_type=cs_20kv_std_type, length_km=2, name="Grambke-SteelPlant") # length: as the crow flies
         pp.create_line(net, mvb01, mvb11c, std_type=cs_20kv_std_type, length_km=2, name="Grambke-Steelplant") # length: as the crow flies
         pp.create_line(net, mvb01, mvb11d, std_type=cs_20kv_std_type, length_km=2, name="Grambke-Steelplant") # length: as the crow flies
+        # doubled lines to increase capacity
+        pp.create_line(net, mvb01, mvb11a, std_type=cs_20kv_std_type, length_km=2, name="Grambke-SteelPlant") # length: as the crow flies
+        pp.create_line(net, mvb01, mvb11b, std_type=cs_20kv_std_type, length_km=2, name="Grambke-SteelPlant") # length: as the crow flies
+        pp.create_line(net, mvb01, mvb11c, std_type=cs_20kv_std_type, length_km=2, name="Grambke-Steelplant") # length: as the crow flies
+        pp.create_line(net, mvb01, mvb11d, std_type=cs_20kv_std_type, length_km=2, name="Grambke-Steelplant") # length: as the crow flies
+
+
         #pp.create_line(net, mvb01, mvb15, std_type=cs_20kv_std_type, length_km=, name="Grambke-Luftzerlegungsanlage")
         #pp.create_line(net, mvb01, mvb16, std_type=cs_20kv_std_type, length_km=, name="Grambke-Verzinkereien")
 

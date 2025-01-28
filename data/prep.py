@@ -61,6 +61,7 @@ plant_data.index += pd.offsets.DateOffset(years=ydiff)
 plant_data.reset_index(inplace=True)
 
 target_capacity = scale_to * 10 ** 6 # TW -> MW
+plant_data['P[MW]'] = plant_data['P[MW]'].clip(lower=0.1) # assume that the plant cannot consume zero
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
@@ -85,6 +86,7 @@ plant_data.index += pd.offsets.DateOffset(years=ydiff)
 plant_data.reset_index(inplace=True)
 
 target_capacity = scale_to * 10 ** 6 # TW -> MW
+plant_data['P[MW]'] = plant_data['P[MW]'].clip(lower=0.1) # assume that the plant cannot consume zero
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 total_capacity = plant_data['P[MW]'].sum() / 10 ** 6
@@ -117,6 +119,7 @@ plant_data.index += pd.offsets.DateOffset(years=ydiff)
 plant_data.reset_index(inplace=True)
 
 target_capacity = scale_to * 10 ** 6 # TW -> MW
+plant_data['P[MW]'] = plant_data['P[MW]'].clip(lower=0.1) # assume that the plant cannot produce zero
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 plant_data['P[MW]'] = plant_data['P[MW]'] * limit_to
@@ -143,6 +146,7 @@ plant_data.index += pd.offsets.DateOffset(years=ydiff)
 plant_data.reset_index(inplace=True)
 
 target_capacity = scale_to * 10 ** 6 # TW -> MW
+plant_data['P[MW]'] = plant_data['P[MW]'].clip(lower=0.1) # assume that the plant cannot produce zero
 total_capacity = plant_data['P[MW]'].sum()
 plant_data['P[MW]'] = plant_data['P[MW]'] * target_capacity / total_capacity
 plant_data['P[MW]'] = plant_data['P[MW]'] * limit_to

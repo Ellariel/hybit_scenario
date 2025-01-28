@@ -41,7 +41,7 @@ sim_config = {
 
     ## Preperation
 SCENARIO_TYPE = 'A'
-END = 24 * 60 * 60 * 1 # one day in seconds
+END = 24 * 60 * 60 * 50 # one day in seconds
 START_DATE = '2023-03-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
@@ -49,7 +49,6 @@ WEATHER_DATA = 'weather_data_bremen_2020_2023.csv'
 STEEL_PLANT_DATA = 'steel_plant_consumption_2023.csv'
 POWER_PLANT_DATA = 'power_plant_generation_2023.csv'
 GRID_FILE = 'hybit_egrid_cell1.json'
-GEN_NEG = True
 
 base_dir = os.path.dirname(__file__)
 output_file = f'results_{SCENARIO_TYPE}.csv'
@@ -82,8 +81,8 @@ weater_input = world.start("InputSim",
                             datafile=os.path.join(data_dir, WEATHER_DATA))
 weather = weater_input.WeatherData.create(1)[0]
 
-pv_sim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z", gen_neg=GEN_NEG)
-wt_sim = world.start("WTSim", sim_id=f"WTSim", step_size=STEP_SIZE, gen_neg=GEN_NEG)
+pv_sim = world.start('PVSim', sim_id="PVSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
+wt_sim = world.start("WTSim", sim_id=f"WTSim", step_size=STEP_SIZE, gen_neg=False)
 
 steel_plant_input = world.start("InputSim", 
                             sim_id='SteelPlantSim',
@@ -140,7 +139,7 @@ for id, setup in MODEL_SETUPS.items():
 
 ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
                                                                                          scenario_type=SCENARIO_TYPE,
-                                                                                         gen_neg=GEN_NEG))
+                                                                                         gen_neg=False))
 ctrl = ctrl_sim.Ctrl.create(1)[0]
 
 world.connect(power_units['ExternalGrid'][0], outputs, ('P[MW]', 'ExternalGrid-P[MW]'))
@@ -148,6 +147,7 @@ world.connect(power_units['ExternalGrid'][0], outputs, ('P[MW]', 'ExternalGrid-P
 for k, v in ctrl_attributes.items():
     if 'PV' in k:
         world.connect(v['input'], ctrl, ('p_mw', k))
+        #world.connect(v['input'], outputs, 'p_mw')
         world.connect(ctrl, v['output'], (k, 'P_gen[MW]'))
     elif 'WT' in k:
         world.connect(v['input'], ctrl, ('P_gen', k))
@@ -157,7 +157,7 @@ for k, v in ctrl_attributes.items():
         world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
     elif 'PowerPlant' in k:
         world.connect(v['input'], ctrl, (f"G{k.split('-')[1]}-P[MW]", k))
-        world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
+        world.connect(ctrl, v['output'], (k, 'P_gen[MW]'))
     world.connect(ctrl, outputs, k)
 
 print(f'Power grid elements created: {len(power_units)}')

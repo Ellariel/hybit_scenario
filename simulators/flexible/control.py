@@ -100,7 +100,7 @@ class CtrlSimulator(mosaik_api.Simulator):
             steel_plant = abs(sum([e[a] for a in s_params]))
 
             if self.scenario_type == 'A':
-                adjusted = steel_plant - renewables
+                adjusted = max(0.1, steel_plant - renewables) # assume that power plant cannot produce zero
                 conventionals = min(conventionals, adjusted)
                 
                 r = conventionals / len(p_params)
