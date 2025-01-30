@@ -107,7 +107,7 @@ class CtrlSimulator(mosaik_api.Simulator):
                 
 
                 print(f'battery injection:', battery)
-                
+                print('demand without battery', steel_plant - renewables)
                 demand = steel_plant - renewables + battery
                 conventionals = min(conventionals, max(0.1, demand)) # assume that power plant cannot produce zero
                 #renewables_surplus = min(0, renewables - steel_plant)

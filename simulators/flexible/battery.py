@@ -27,7 +27,7 @@ class Simulator(PysimmodsSimulator):
         self.previous_timestep = -1
         self.current_timestep = 0
         self.max_advance = 0
-        self.meta["type"] = "event-based"
+        #self.meta["type"] = "event-based"
 
     def step(
         self,
