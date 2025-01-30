@@ -124,3 +124,31 @@ def pv_model_params(module_type, no_modules, **kwargs):
             "inverter": None,
         },
     }
+
+# battery source: https://info.fluenceenergy.com/hubfs/Fluence%20Gridstack%20Pro_Global_US%20EN.pdf?hsCtaTracking=bfb2018d-bed9-460b-a7f2-40ce77239eed%7Cc929f4f5-0a71-4de0-828e-439063d844b8
+batcount = 10  # Anzahl der Batteriespeicher (es werden mehrere der Speicher benötigt, um einen Gesamtspeicher in der passenden Größenordnung zu erhalten)
+c_rate = 0.5
+cap_per_bat = 5644
+cap_kwh = batcount * cap_per_bat  # capacity of battery / Kapazität der Batterie (in kWh)
+p_charge_max_kw = batcount * cap_per_bat * c_rate  # maximum charging power / maximale Ladeleistung (in kW)
+p_discharge_max_kw = batcount * cap_per_bat * c_rate  # maximum discharging power / maximale Entladeleistung (in kW)
+soc_min_percent = 15  # optional parameter - defines a threshold for the state of charge; state of charge may not fall below that value / Mindest-Ladezustand (in %)
+soc_percent = 20  # defines the state of charge of the battery in the beginning / Anfangsladezustand (in %)
+soc_min_mwh = soc_min_percent / 100 * cap_kwh * 0.001  # *0.001 for kw to mw
+BT_PARAMS = {
+    # https://midas-mosaik.gitlab.io/pysimmods/base-models/battery.html
+    "params" : {
+        "cap_kwh": cap_kwh,
+        "p_charge_max_kw": p_charge_max_kw,
+        "p_discharge_max_kw": p_discharge_max_kw,
+        "soc_min_percent": soc_min_percent,
+        #"eta_pc", #optional paramter - coefficients of the polynom to model the efficiency of the battery, represented as list of three values
+    },
+    "inits": {
+        "soc_percent": soc_percent,
+    },
+    # Das Batterie-Modell hat zwei weitere Zustandsvariablen *p_kw* und *eta_percent*.
+    # Sie zeigen die aktuelle Leistung und die Effizienz der Batterie an.
+}
+
+

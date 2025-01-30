@@ -13,24 +13,27 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-from data.config import MODEL_SETUPS, WT_MODULES, pv_model_params
+from data.config import MODEL_SETUPS, WT_MODULES, BT_PARAMS, pv_model_params
 
 sim_config = {
         'OutputSim': {
                     'python': 'mosaik_csv_writer:CSVWriter',
         },
         'InputSim': {
-                    'python': 'mosaik_csv:CSV'
+                    'python': 'mosaik_csv:CSV',
         },  
         'WTSim': {
-            'python': 'mosaik_components.wind:Simulator'#'simulators.wind:Simulator'
+            'python': 'mosaik_components.wind:Simulator', #'simulators.wind:Simulator'
         },
         'PVSim': {
-            'python': 'pysimmods.mosaik.pysim_mosaik:PysimmodsSimulator'
+            'python': 'pysimmods.mosaik.pysim_mosaik:PysimmodsSimulator',
         },
         #'FlexSim': {
         #        'python': 'simulators.flexible:Simulator',
         #},
+        'BTSim': {
+            'python': 'pysimmods.mosaik.pysim_mosaik:PysimmodsSimulator',
+        },
         'GridSim': {
                 'python': 'mosaik_components.pandapower:Simulator',
         },
@@ -41,7 +44,7 @@ sim_config = {
 
     ## Preperation
 SCENARIO_TYPE = 'A'
-END = 24 * 60 * 60 * 50 # one day in seconds
+END = 24 * 60 * 60 * 1 # one day in seconds
 START_DATE = '2023-03-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
@@ -137,12 +140,38 @@ for id, setup in MODEL_SETUPS.items():
             world.connect(weather, wt[-1], 'wind_speed')
             ctrl_attributes[f'WT-{len(wt)}-P[MW]'] = {'output': get_power_unit(id), 'input': wt[-1]}
 
-ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
-                                                                                         scenario_type=SCENARIO_TYPE,
-                                                                                         gen_neg=False))
-ctrl = ctrl_sim.Ctrl.create(1)[0]
+if SCENARIO_TYPE == 'A':
+
+    # control cycle
+    with world.group():
+
+        bt_sim = world.start('BTSim', sim_id="BTSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
+        bt = bt_sim.Battery(**BT_PARAMS)
+        ctrl_attributes[f'Battery-1-P[MW]'] = {'output': get_power_unit('Battery'), 'input': bt}
+        ctrl_attributes[f'Battery-1-SET-P[MW]'] = ctrl_attributes[f'Battery-1-P[MW]']
+
+    #world.connect(batModel, controller, ('soc_percent', 'soc_bat'))
+    #world.connect(controller, batModel, ('p_out_toBat', 'p_set_mw'), weak=True)
+    #world.connect(batModel, nodes_load[162], ('p_mw', 'p_mw'))
+    #world.connect(nodes_load[65], monitor, 'p_mw')
+    #world.connect(batModel, monitor,  'p_mw', 'soc_percent')
+
+
+
+    #    Battery
+    #    pass
+
+        ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
+                                                                                                scenario_type=SCENARIO_TYPE,
+                                                                                                gen_neg=False))
+        ctrl = ctrl_sim.Ctrl.create(1)[0]
+
+
 
 world.connect(power_units['ExternalGrid'][0], outputs, ('P[MW]', 'ExternalGrid-P[MW]'))
+world.connect(bt, outputs, 'p_mw')
+world.connect(bt, outputs, 'soc_percent')
+
 
 for k, v in ctrl_attributes.items():
     if 'PV' in k:
@@ -158,6 +187,13 @@ for k, v in ctrl_attributes.items():
     elif 'PowerPlant' in k:
         world.connect(v['input'], ctrl, (f"G{k.split('-')[1]}-P[MW]", k))
         world.connect(ctrl, v['output'], (k, 'P_gen[MW]'))
+    elif 'Battery' in k:
+        if 'SET' in k:
+            world.connect(ctrl, v['input'], (k, 'p_set_mw'))
+        else:
+            world.connect(v['input'], ctrl, ('p_mw', k), weak=True, initial_data={'p_mw': 0})
+            world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
+
     world.connect(ctrl, outputs, k)
 
 print(f'Power grid elements created: {len(power_units)}')

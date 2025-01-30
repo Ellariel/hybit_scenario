@@ -58,11 +58,10 @@ def make_grid_model(**kwargs):
         hvb24 = pp.create_bus(net, vn_kv=110., name="hvb24-WT28")
         hvb25 = pp.create_bus(net, vn_kv=110., name="hvb25-WT29")
 
-        #hvb26 = pp.create_bus(net, vn_kv=110., name="hvb26-Elektrolyseur")
-        #hvb27 = pp.create_bus(net, vn_kv=110., name="hvb27-Battery")
-
         hvb26 = pp.create_bus(net, vn_kv=110., name="hvb26-PowerPlant-KW")
         hvb27 = pp.create_bus(net, vn_kv=110., name="hvb27-PowerPlant-GUD")
+        hvb28 = pp.create_bus(net, vn_kv=110., name="hvb28-Elektrolyseur")
+        hvb29 = pp.create_bus(net, vn_kv=110., name="hvb29-Battery")
 
         # busses 20 kV - medium voltage distribution network
         ## it's only given, that the (wind) power plants are connected to medium voltage - don't know how to find out the exact voltage level

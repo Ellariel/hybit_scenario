@@ -78,7 +78,7 @@ class CtrlSimulator(mosaik_api.Simulator):
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():              
                 self.cache[eid][attr] = sum(values.values())
-        self.control()
+        self.control(time)
         return time + self.step_size
      
 
@@ -88,24 +88,33 @@ class CtrlSimulator(mosaik_api.Simulator):
                                } for eid, attrs in outputs.items()}
     
 
-    def control(self):
+    def control(self, time):
         for eid in self.cache.keys():
             e = self.cache[eid]
             r_params = [a for a in e.keys() if 'WT' in a or 'PV' in a]
             s_params = [a for a in e.keys() if 'SteelPlant' in a]
             p_params = [a for a in e.keys() if 'PowerPlant' in a]
 
+            battery = e['Battery-1-P[MW]']
             renewables = abs(sum([e[a] for a in r_params]))
             conventionals = abs(sum([e[a] for a in p_params]))
             steel_plant = abs(sum([e[a] for a in s_params]))
 
             if self.scenario_type == 'A':
-                adjusted = max(0.1, steel_plant - renewables) # assume that power plant cannot produce zero
-                conventionals = min(conventionals, adjusted)
+                
+
+                print(f'bat inj ({time}):', battery)
+                
+                demand = steel_plant - renewables - battery
+                conventionals = min(conventionals, max(0.1, demand)) # assume that power plant cannot produce zero
+                renewables_surplus = min(0, renewables - steel_plant)
+
+                print('demand:', demand)
+
+                e['Battery-1-SET-P[MW]'] = 
                 
                 r = conventionals / len(p_params)
-                if self.gen_neg:
-                    r = abs(r) * (-1)
+                r = abs(r) * (-1) if self.gen_neg else r
                 for a in p_params:
                     e[a] = r
 
