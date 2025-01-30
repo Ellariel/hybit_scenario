@@ -32,7 +32,7 @@ sim_config = {
         #        'python': 'simulators.flexible:Simulator',
         #},
         'BTSim': {
-            'python': 'pysimmods.mosaik.pysim_mosaik:PysimmodsSimulator',
+            'python': 'simulators.flexible.battery:Simulator',#'pysimmods.mosaik.pysim_mosaik:PysimmodsSimulator',
         },
         'GridSim': {
                 'python': 'mosaik_components.pandapower:Simulator',
@@ -44,7 +44,7 @@ sim_config = {
 
     ## Preperation
 SCENARIO_TYPE = 'A'
-END = 24 * 60 * 60 * 1 # one day in seconds
+END = 60 * 60 * 1 # one day in seconds
 START_DATE = '2023-03-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
