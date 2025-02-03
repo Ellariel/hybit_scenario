@@ -76,7 +76,7 @@ class CtrlSimulator(mosaik_api.Simulator):
 
     def step(self, time, inputs, max_advance):
         # {'Ctrl-0': {'P[MW]': {'SteelPlantSim.SteelPlant_0': 9.259042859671064}}}
-        print('ctrl step:', time)#, inputs)
+        #print('ctrl step:', time)#, inputs)
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():              
                 self.cache[eid][attr] = sum(values.values()) 
@@ -99,36 +99,37 @@ class CtrlSimulator(mosaik_api.Simulator):
             p_params = [a for a in e.keys() if 'PowerPlant' in a]
 
             battery = e['Battery-1-P[MW]'] if 'Battery-1-P[MW]' in e and not first_timestep else 0
-            renewables = abs(sum([e[a] for a in r_params]))
+            renewables = abs(sum([e[a] for a in r_params]))# +20
             conventionals = abs(sum([e[a] for a in p_params]))
             steel_plant = abs(sum([e[a] for a in s_params]))
 
             if self.scenario_type == 'A':
                 
 
-                print(f'battery injection:', battery)
-                print('demand without battery', steel_plant - renewables)
+                #print(f'battery injection:', battery)
+                #print('demand without battery', steel_plant - renewables)
                 demand = steel_plant - renewables + battery
                 conventionals = min(conventionals, max(0.1, demand)) # assume that power plant cannot produce zero
                 #renewables_surplus = min(0, renewables - steel_plant)
 
-                print('demand:', demand)
-                print('conventionals:', conventionals)
+                #print('demand:', demand)
+                #print('conventionals:', conventionals)
                 if first_timestep:
-                    print('ctrl first_timestep')
+                    #print('ctrl first_timestep')
                     e['Battery-1-SET-P[MW]'] = -demand
+                    #e['Battery-1-P[MW]'] = 0
                 else:
                 #    pass
                     del e['Battery-1-SET-P[MW]']
 
-                e['Battery-1-P[MW]'] *= -1
+                #e['Battery-1-P[MW]'] *= -1
                 
                 r = conventionals / len(p_params)
                 r = abs(r) * (-1) if self.gen_neg else r
                 for a in p_params:
                     e[a] = r
 
-                print(e)
+                #print(e)
 
             else:
                 pass        

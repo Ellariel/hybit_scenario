@@ -88,7 +88,7 @@ def make_grid_model(**kwargs):
         #mvb16 = pp.create_bus(net, vn_kv=20., name="mvb16-Verzinkereien")
 
         mvb12 = pp.create_bus(net, vn_kv=20., name="mvb12-Mittelsbüren")
-        mvb14 = pp.create_bus(net, vn_kv=20., name="mvb14-Battery")
+        #mvb14 = pp.create_bus(net, vn_kv=20., name="mvb14-Battery")
 
         mvb15 = pp.create_bus(net, vn_kv=20., name="mvb15-PV07")
         mvb16 = pp.create_bus(net, vn_kv=20., name="mvb16-PV10")
@@ -290,10 +290,12 @@ def make_grid_model(**kwargs):
         # Electrolyser
         #pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
         # assumed electrolyzer to be next to gas power plant Mittelbüren
-        #pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
-        #pp.create_line(net, hvb03, hvb27, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Battery") #LENGTH CHECK!!
         pp.create_line(net, hvb03, hvb26, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-PowerPlant-KW") #LENGTH CHECK!!
         pp.create_line(net, hvb03, hvb27, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-PowerPlant-GUD") #LENGTH CHECK!!
+        pp.create_line(net, hvb03, hvb28, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Elektrolyseur") #LENGTH CHECK!!
+        pp.create_line(net, hvb03, hvb29, std_type=cs_110kv_std_type, length_km=0.20, name="Mittelsbueren-Battery") #LENGTH CHECK!!
+        
+
 
         # WP Weserwind - all lengths oriented at streets
         pp.create_line(net, hvb05, hvb07, std_type=cs_110kv_std_type, length_km=0.46, name="WT5-WT7_WP Weserwind")
@@ -361,7 +363,7 @@ def make_grid_model(**kwargs):
 
         # assumed Battery to be located near the gas power plants
         pp.create_line(net, mvb01, mvb12, std_type=cs_20kv_std_type, length_km=2.5, name="Grambke-Mittelsbüren")
-        pp.create_line(net, mvb12, mvb14, std_type=cs_20kv_std_type, length_km=0.1, name="Mittelsbüren-Battery")
+        #pp.create_line(net, mvb12, mvb14, std_type=cs_20kv_std_type, length_km=0.1, name="Mittelsbüren-Battery")
 
         # wind turbines
         pp.create_line(net, mvb02, mvb01, std_type=cs_20kv_std_type, length_km=2.36, name="WT1-Grambke_Forschungs WEA") # length: as the crow flies

@@ -35,10 +35,10 @@ class Simulator(PysimmodsSimulator):
         inputs: Dict[str, Dict[str, Dict[str, Any]]],
         max_advance: int = 0,
     ):
-        print('Battery step:', time, inputs)
+        #print('Battery step:', time, inputs)
         self.cached_inputs = copy.deepcopy(inputs)
         # {'Ctrl-0': {'P[MW]': {'SteelPlantSim.SteelPlant_0': 9.259042859671064}}}
-        #print('ctrl step:', time)
+        #print('btry step:', time, inputs)
         #for eid, attrs in inputs.items():
         #    for attr, values in attrs.items():     
         #        if self.current_timestep != time: # first timestep

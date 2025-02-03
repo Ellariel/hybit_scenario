@@ -44,8 +44,8 @@ sim_config = {
 
     ## Preperation
 SCENARIO_TYPE = 'A'
-END = 60 * 60 * 1 # one day in seconds
-START_DATE = '2023-03-01 00:00:00' # '2023-04-26 00:00:00
+END = 60 * 60 * 10 # one day in seconds
+START_DATE = '2023-07-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
 WEATHER_DATA = 'weather_data_bremen_2020_2023.csv'
@@ -101,77 +101,80 @@ power_plant_input = world.start("InputSim",
                             datafile=os.path.join(data_dir, POWER_PLANT_DATA))
 power_plant = power_plant_input.PowerPlant.create(1)[0]
 
-## Electricity grid model
+
+
+
+    ## Electricity grid model
 grid_sim = world.start('GridSim', sim_id='GridSim', step_size=None) # step_size=None is important to have the grid model triggered by any input
 grid_model = grid_sim.Grid(json=grid_file)
 power_units = {v['name'] : (e, v) for k, v in grid_sim.get_extra_info().items()
-                                for e in grid_model.children
-                                    if e.eid == k and\
-                                        ('ExternalGrid' in v['name'] or\
-                                         'StaticGen' in v['name'] or\
-                                         'Load' in v['name'] or\
-                                         'Bus' in v['name'])}
+                                    for e in grid_model.children
+                                        if e.eid == k and\
+                                            ('ExternalGrid' in v['name'] or\
+                                            'StaticGen' in v['name'] or\
+                                            'Load' in v['name'] or\
+                                            'Bus' in v['name'])}
 
 def get_power_unit(key, type='Bus', first=True):
-    units = []
-    for k, v in power_units.items():
-         if (f'-{key}-' in k) and (f'-{type}-' in k):
-            if first:
-                return v[0] 
-            units.append(v[0])
-    return units
+        units = []
+        for k, v in power_units.items():
+            if (f'-{key}-' in k) and (f'-{type}-' in k):
+                if first:
+                    return v[0] 
+                units.append(v[0])
+        return units
 
 ctrl_attributes = {}
 for i, v in enumerate(get_power_unit('SteelPlant', first=False)):
-    ctrl_attributes[f'SteelPlant-{i+1}-P[MW]'] = {'output': v, 'input': steel_plant}
-    
+        ctrl_attributes[f'SteelPlant-{i+1}-P[MW]'] = {'output': v, 'input': steel_plant}
+        
 for i, v in enumerate(get_power_unit('PowerPlant', first=False)):
-    ctrl_attributes[f'PowerPlant-{i+1}-P[MW]'] = {'output': v, 'input': power_plant}
+        ctrl_attributes[f'PowerPlant-{i+1}-P[MW]'] = {'output': v, 'input': power_plant}
 
 pv, wt = [], []
 for id, setup in MODEL_SETUPS.items():
-        if 'PV' in id:
-            pv += [pv_sim.Photovoltaic(**pv_model_params(**setup))]
-            world.connect(weather, pv[-1], 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2')
-            ctrl_attributes[f'PV-{len(pv)}-P[MW]'] = {'output': get_power_unit(id), 'input': pv[-1]}
-        elif 'WT' in id:
-            wt += [wt_sim.WT(max_power=setup['max_power'], 
-                                  power_curve_csv=os.path.join(data_dir, WT_MODULES[setup["module_type"]]))]
-            world.connect(weather, wt[-1], 'wind_speed')
-            ctrl_attributes[f'WT-{len(wt)}-P[MW]'] = {'output': get_power_unit(id), 'input': wt[-1]}
+            if 'PV' in id:
+                pv += [pv_sim.Photovoltaic(**pv_model_params(**setup))]
+                world.connect(weather, pv[-1], 't_air_deg_celsius', 'bh_w_per_m2', 'dh_w_per_m2')
+                ctrl_attributes[f'PV-{len(pv)}-P[MW]'] = {'output': get_power_unit(id), 'input': pv[-1]}
+            elif 'WT' in id:
+                wt += [wt_sim.WT(max_power=setup['max_power'], 
+                                    power_curve_csv=os.path.join(data_dir, WT_MODULES[setup["module_type"]]))]
+                world.connect(weather, wt[-1], 'wind_speed')
+                ctrl_attributes[f'WT-{len(wt)}-P[MW]'] = {'output': get_power_unit(id), 'input': wt[-1]}
 
 if SCENARIO_TYPE == 'A':
 
-    # control cycle
-    with world.group():
+        # control cycle
+        with world.group():
 
 
 
-        bt_sim = world.start('BTSim', sim_id="BTSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
-        bt = bt_sim.Battery(**BT_PARAMS)
-        ctrl_attributes[f'Battery-1-P[MW]'] = {'output': get_power_unit('Battery'), 'input': bt}
-        ctrl_attributes[f'Battery-1-SET-P[MW]'] = ctrl_attributes[f'Battery-1-P[MW]']
+            bt_sim = world.start('BTSim', sim_id="BTSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
+            bt = bt_sim.Battery(**BT_PARAMS)
+            ctrl_attributes[f'Battery-1-P[MW]'] = {'output': get_power_unit('Battery'), 'input': bt}
+            ctrl_attributes[f'Battery-1-SET-P[MW]'] = ctrl_attributes[f'Battery-1-P[MW]']
 
-    #world.connect(batModel, controller, ('soc_percent', 'soc_bat'))
-    #world.connect(controller, batModel, ('p_out_toBat', 'p_set_mw'), weak=True)
-    #world.connect(batModel, nodes_load[162], ('p_mw', 'p_mw'))
-    #world.connect(nodes_load[65], monitor, 'p_mw')
-    #world.connect(batModel, monitor,  'p_mw', 'soc_percent')
+        #world.connect(batModel, controller, ('soc_percent', 'soc_bat'))
+        #world.connect(controller, batModel, ('p_out_toBat', 'p_set_mw'), weak=True)
+        #world.connect(batModel, nodes_load[162], ('p_mw', 'p_mw'))
+        #world.connect(nodes_load[65], monitor, 'p_mw')
+        #world.connect(batModel, monitor,  'p_mw', 'soc_percent')
 
 
 
-    #    Battery
-    #    pass
+        #    Battery
+        #    pass
 
-        ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
-                                                                                                scenario_type=SCENARIO_TYPE,
-                                                                                                gen_neg=False))
-        ctrl = ctrl_sim.Ctrl.create(1)[0]
+            ctrl_sim = world.start("CtrlSim", sim_id="CtrlSim", step_size=STEP_SIZE, sim_params=dict(ctrl_attributes=ctrl_attributes, 
+                                                                                                    scenario_type=SCENARIO_TYPE,
+                                                                                                    gen_neg=False))
+            ctrl = ctrl_sim.Ctrl.create(1)[0]
 
 
 
 world.connect(power_units['ExternalGrid'][0], outputs, ('P[MW]', 'ExternalGrid-P[MW]'))
-world.connect(bt, outputs, 'p_mw')
+#world.connect(bt, outputs, 'p_mw')
 world.connect(bt, outputs, 'soc_percent')
 
 
@@ -193,9 +196,9 @@ for k, v in ctrl_attributes.items():
         if 'SET' in k:
             world.connect(ctrl, v['input'], (k, 'p_set_mw'))
         else:
-            world.connect(v['input'], ctrl, ('p_mw', k), weak=True, initial_data={'p_mw': 0})
+            world.connect(v['input'], ctrl, ('p_mw', k), weak=True)#, initial_data={'p_mw': 0})
             #world.connect(v['input'], v['output'], ('p_mw', 'P_load[MW]'))
-            #world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
+            world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
 
     world.connect(ctrl, outputs, k)
 
