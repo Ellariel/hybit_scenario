@@ -145,6 +145,8 @@ if SCENARIO_TYPE == 'A':
     # control cycle
     with world.group():
 
+
+
         bt_sim = world.start('BTSim', sim_id="BTSim", step_size=STEP_SIZE, start_date=f"{START_DATE}Z")
         bt = bt_sim.Battery(**BT_PARAMS)
         ctrl_attributes[f'Battery-1-P[MW]'] = {'output': get_power_unit('Battery'), 'input': bt}
