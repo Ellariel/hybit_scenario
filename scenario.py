@@ -44,8 +44,8 @@ sim_config = {
 
     ## Preperation
 SCENARIO_TYPE = 'A'
-END = 60 * 60 * 10 # one day in seconds
-START_DATE = '2023-07-01 00:00:00' # '2023-04-26 00:00:00
+END = 24 * 60 * 60 * 2 # one day in seconds
+START_DATE = '2023-05-01 00:00:00' # '2023-04-26 00:00:00
 DATE_FORMAT = 'mixed' # 'YYYY-MM-DD hh:mm:ss'
 STEP_SIZE = 15 * 60 # 15 minutes in seconds
 WEATHER_DATA = 'weather_data_bremen_2020_2023.csv'
