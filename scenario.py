@@ -102,7 +102,7 @@ power_plant_input = world.start("InputSim",
 power_plant = power_plant_input.PowerPlant.create(1)[0]
 
 ## Electricity grid model
-grid_sim = world.start('GridSim', sim_id='GridSim', step_size=STEP_SIZE) # step_size=None is important to have the grid model triggered by any input
+grid_sim = world.start('GridSim', sim_id='GridSim', step_size=None) # step_size=None is important to have the grid model triggered by any input
 grid_model = grid_sim.Grid(json=grid_file)
 power_units = {v['name'] : (e, v) for k, v in grid_sim.get_extra_info().items()
                                 for e in grid_model.children
@@ -192,7 +192,8 @@ for k, v in ctrl_attributes.items():
             world.connect(ctrl, v['input'], (k, 'p_set_mw'))
         else:
             world.connect(v['input'], ctrl, ('p_mw', k), weak=True, initial_data={'p_mw': 0})
-            world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
+            #world.connect(v['input'], v['output'], ('p_mw', 'P_load[MW]'))
+            #world.connect(ctrl, v['output'], (k, 'P_load[MW]'))
 
     world.connect(ctrl, outputs, k)
 

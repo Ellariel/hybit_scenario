@@ -133,7 +133,7 @@ cap_kwh = batcount * cap_per_bat  # capacity of battery / Kapazität der Batteri
 p_charge_max_kw = batcount * cap_per_bat * c_rate  # maximum charging power / maximale Ladeleistung (in kW)
 p_discharge_max_kw = batcount * cap_per_bat * c_rate  # maximum discharging power / maximale Entladeleistung (in kW)
 soc_min_percent = 15  # optional parameter - defines a threshold for the state of charge; state of charge may not fall below that value / Mindest-Ladezustand (in %)
-soc_percent = 100  # defines the state of charge of the battery in the beginning / Anfangsladezustand (in %)
+soc_percent = 30  # defines the state of charge of the battery in the beginning / Anfangsladezustand (in %)
 soc_min_mwh = soc_min_percent / 100 * cap_kwh * 0.001  # *0.001 for kw to mw
 BT_PARAMS = {
     # https://midas-mosaik.gitlab.io/pysimmods/base-models/battery.html

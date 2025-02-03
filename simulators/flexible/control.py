@@ -76,7 +76,7 @@ class CtrlSimulator(mosaik_api.Simulator):
 
     def step(self, time, inputs, max_advance):
         # {'Ctrl-0': {'P[MW]': {'SteelPlantSim.SteelPlant_0': 9.259042859671064}}}
-        print('ctrl step:', time)
+        print('ctrl step:', time)#, inputs)
         for eid, attrs in inputs.items():
             for attr, values in attrs.items():              
                 self.cache[eid][attr] = sum(values.values()) 
@@ -98,7 +98,7 @@ class CtrlSimulator(mosaik_api.Simulator):
             s_params = [a for a in e.keys() if 'SteelPlant' in a]
             p_params = [a for a in e.keys() if 'PowerPlant' in a]
 
-            battery = e['Battery-1-P[MW]'] if 'Battery-1-P[MW]' in e else 0
+            battery = e['Battery-1-P[MW]'] if 'Battery-1-P[MW]' in e and not first_timestep else 0
             renewables = abs(sum([e[a] for a in r_params]))
             conventionals = abs(sum([e[a] for a in p_params]))
             steel_plant = abs(sum([e[a] for a in s_params]))
@@ -113,14 +113,22 @@ class CtrlSimulator(mosaik_api.Simulator):
                 #renewables_surplus = min(0, renewables - steel_plant)
 
                 print('demand:', demand)
+                print('conventionals:', conventionals)
                 if first_timestep:
                     print('ctrl first_timestep')
                     e['Battery-1-SET-P[MW]'] = -demand
+                else:
+                #    pass
+                    del e['Battery-1-SET-P[MW]']
+
+                e['Battery-1-P[MW]'] *= -1
                 
                 r = conventionals / len(p_params)
                 r = abs(r) * (-1) if self.gen_neg else r
                 for a in p_params:
                     e[a] = r
+
+                print(e)
 
             else:
                 pass        

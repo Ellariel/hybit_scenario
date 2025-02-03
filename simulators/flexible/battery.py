@@ -3,7 +3,7 @@ from __future__ import annotations
 from os.path import abspath
 from pathlib import Path
 from pysimmods.mosaik.pysim_mosaik import PysimmodsSimulator, META
-import copy
+import copy, sys
 import pandas as pd
 import arrow, os
 from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple
@@ -27,7 +27,7 @@ class Simulator(PysimmodsSimulator):
         self.previous_timestep = -1
         self.current_timestep = 0
         self.max_advance = 0
-        #self.meta["type"] = "event-based"
+        self.meta["type"] = "event-based"
 
     def step(
         self,
@@ -56,27 +56,31 @@ class Simulator(PysimmodsSimulator):
         #
         #for eid in outputs.keys():
         #    _outputs[eid] = ["p_mw", "soc_percent"]
-        print('battery get data')
+        #print('battery get data')
                 
         
         #data = {}
         if self.current_timestep != self.previous_timestep:
-            print('battery first step')
+            #print('battery first step')
             self.cached_outputs = super().get_data(outputs)
-            #for eid, attrs in outputs.items():
-            #data.setdefault(eid, {})
+            #for eid, attrs in self.cached_outputs.items():
+            #    self.cached_outputs.setdefault(eid, {})
             #    for attr in attrs:
             #        if attr == 'p_mw':
-                    #data[eid][attr] *= -1
+            #            self.cached_outputs[eid][attr] *= -1
                     
                         
             for eid, attrs in self.cached_inputs.items():
                 for attr, values in attrs.items():     
                     if attr == 'p_set_mw':
-                        print(self.cached_inputs)
+                        #print(self.cached_inputs)
                         self.cached_inputs[eid][attr] = {k: 0.0 for k, v in values.items()}
-                        print(self.cached_inputs)
+                        #print(self.cached_inputs)
             super().step(self.current_timestep, self.cached_inputs, self.max_advance)
+        #else:
+            #sys.exit()
+            #self.cached_outputs = super().get_data(outputs)
+        #    pass
         self.previous_timestep = self.current_timestep
 
                 
